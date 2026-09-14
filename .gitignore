@@ -22,3 +22,6 @@ dist/
 
 # macOS
 .DS_Store
+lectures/
+sakila-db/
+articulo 2.pdf

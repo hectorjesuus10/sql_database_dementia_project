@@ -1,5 +1,5 @@
-CREATE DATABASE dementia;
-USE dementia;
+CREATE DATABASE Dementia;
+USE Dementia;
 CREATE TABLE Insurance (
     Insurance_company_name VARCHAR(50),
     Insurance_plan VARCHAR(20),
@@ -14,5 +14,10 @@ CREATE TABLE GP (
     GP_name VARCHAR(20)
 
 );
-SELECT * FROM GP;
+ALTER TABLE Insurance 
+ADD PRIMARY KEY (Insurance_company_name);
+
+ALTER TABLE GP
+ADD PRIMARY KEY (GP_ID);
+
 

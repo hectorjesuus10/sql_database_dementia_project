@@ -20,4 +20,10 @@ ADD PRIMARY KEY (Insurance_company_name);
 ALTER TABLE GP
 ADD PRIMARY KEY (GP_ID);
 
+ALTER TABLE GP
+RENAME COLUMN State TO State_name;
 
+ALTER TABLE GP
+ADD CONSTRAINT fk_gp_state
+FOREIGN KEY (State_name)
+REFERENCES State (State_name);

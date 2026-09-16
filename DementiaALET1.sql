@@ -44,3 +44,22 @@ CREATE TABLE GP_insurance (
         FOREIGN KEY (Insurance_plan) REFERENCES Insurance(Insurance_plan)
 );
 
+CREATE TABLE patients_treated_at_gp (
+    Patient_ID CHAR(12),
+    GP_name VARCHAR(20),
+    PRIMARY KEY (Patient_ID, GP_name),
+    CONSTRAINT fk_patient_treated_patient 
+        FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
+    CONSTRAINT fk_patient_treated_gp 
+        FOREIGN KEY (GP_name) REFERENCES GP(GP_name)
+);
+
+CREATE TABLE GP_treatment (
+    GP_ID VARCHAR(10),
+    Drug_name VARCHAR(50) -- Probably a proper data type?
+    PRIMARY KEY (GP_ID, Drug_name),
+    CONSTRAINT fk_GP_treatment_GP
+        FOREIGN KEY (GP_ID) REFERENCES GP_ID(GP),
+    CONSTRAINT fk_GP_treatment_drug
+        FOREIGN KEY (Drug_name) REFERENCES Drug_name(Treatment)
+);

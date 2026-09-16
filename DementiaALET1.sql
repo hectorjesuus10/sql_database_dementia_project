@@ -23,7 +23,24 @@ ADD PRIMARY KEY (GP_ID);
 ALTER TABLE GP
 RENAME COLUMN State TO State_name;
 
-ALTER TABLE GP
+ALTER TABLE GP -- To be implemented due to missing State table!
 ADD CONSTRAINT fk_gp_state
 FOREIGN KEY (State_name)
 REFERENCES State (State_name);
+
+ALTER TABLE Insurance
+ADD CONSTRAINT uq_insurance_plan UNIQUE (Insurance_plan);
+
+DROP TABLE IF EXISTS GP_insurance;
+ 
+CREATE TABLE GP_insurance (
+    GP_ID VARCHAR(10),
+    Insurance_plan VARCHAR(20),
+    GP_insurance_coverage DECIMAL(5,2), -- It will represent a percentage of the price of a GP visit covered by the insurance (e.g., 80.00 = 80%)
+    PRIMARY KEY (GP_ID, Insurance_plan),
+    CONSTRAINT fk_gp_insurance_gp 
+        FOREIGN KEY (GP_ID) REFERENCES GP(GP_ID),
+    CONSTRAINT fk_gp_insurance_insurance 
+        FOREIGN KEY (Insurance_plan) REFERENCES Insurance(Insurance_plan)
+);
+

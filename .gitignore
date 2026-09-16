@@ -2,7 +2,8 @@ databasescourse/
 .DS_Store
 # Virtual environment
 .venv/
-databases
+databases/
+venv_project/
 
 # Python cache
 __pycache__/

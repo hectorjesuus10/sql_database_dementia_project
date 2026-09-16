@@ -1,3 +1,5 @@
+CREATE DATABASE Dementia;
+USE Dementia;
 CREATE DATABASE DEMENTIA;
 USE DEMENTIA;
 CREATE TABLE Insurance (
@@ -14,8 +16,54 @@ CREATE TABLE GP (
     GP_name VARCHAR(20)
 
 );
-SELECT * FROM GP;
+ALTER TABLE Insurance 
+ADD PRIMARY KEY (Insurance_company_name);
 
+ALTER TABLE GP
+ADD PRIMARY KEY (GP_ID);
+
+ALTER TABLE GP
+RENAME COLUMN State_name TO State;
+
+ALTER TABLE GP -- To be implemented due to missing State table!
+ADD CONSTRAINT fk_gp_state
+FOREIGN KEY (State)
+REFERENCES State (State_name);
+
+ALTER TABLE Insurance
+ADD CONSTRAINT uq_insurance_plan UNIQUE (Insurance_plan);
+
+ 
+CREATE TABLE GP_insurance (
+    GP_ID VARCHAR(10),
+    Insurance_plan VARCHAR(20),
+    GP_insurance_coverage DECIMAL(5,2), -- It will represent a percentage of the price of a GP visit covered by the insurance (e.g., 80.00 = 80%)
+    PRIMARY KEY (GP_ID, Insurance_plan),
+    CONSTRAINT fk_gp_insurance_gp 
+        FOREIGN KEY (GP_ID) REFERENCES GP(GP_ID),
+    CONSTRAINT fk_gp_insurance_insurance 
+        FOREIGN KEY (Insurance_plan) REFERENCES Insurance(Insurance_plan)
+);
+
+CREATE TABLE patients_treated_at_gp (
+    Patient_ID CHAR(12),
+    GP_name VARCHAR(20),
+    PRIMARY KEY (Patient_ID, GP_name),
+    CONSTRAINT fk_patient_treated_patient 
+        FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
+    CONSTRAINT fk_patient_treated_gp 
+        FOREIGN KEY (GP_name) REFERENCES GP(GP_name)
+);
+
+CREATE TABLE GP_treatment (
+    GP_ID VARCHAR(10),
+    Drug_name VARCHAR(50) -- Probably a proper data type?
+    PRIMARY KEY (GP_ID, Drug_name),
+    CONSTRAINT fk_GP_treatment_GP
+        FOREIGN KEY (GP_ID) REFERENCES GP_ID(GP),
+    CONSTRAINT fk_GP_treatment_drug
+        FOREIGN KEY (Drug_name) REFERENCES Drug_name(Treatment)
+);
 CREATE TABLE Patient(
     Patient_ID CHAR(12) DEFAULT (UUID()) PRIMARY KEY,
     Age INT,

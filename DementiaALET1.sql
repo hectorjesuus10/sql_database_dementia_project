@@ -1,6 +1,28 @@
 
 CREATE DATABASE DEMENTIA;
 USE DEMENTIA;
+
+CREATE TABLE Treatment (
+    drug_name VARCHAR(50) PRIMARY KEY,
+    cost DECIMAL(10,2),
+    State VARCHAR(50),
+    number_of_people_treated INT,
+    FOREIGN KEY (State) REFERENCES State(state_name)
+
+);
+
+CREATE TABLE patient_treatment(
+    drug_name VARCHAR(50),
+    patient_ID CHAR(12),
+    start_date DATE,
+    end_date DATE,
+    outcome VARCHAR(50),
+    PRIMARY KEY (drug_name, patient_ID),
+    FOREIGN KEY (drug_name) REFERENCES Treatment(drug_name),
+    FOREIGN KEY (patient_ID) REFERENCES Patient(Patient_ID)
+
+);
+
 CREATE TABLE Insurance (
     Insurance_company_name VARCHAR(50),
     Insurance_plan VARCHAR(20),
@@ -114,4 +136,4 @@ JOIN Treatment
 WHERE Patient.Type_of_dementia = 'Vascular'
   AND Treatment.Drug_name = 'Donezepil';
 
-  
+

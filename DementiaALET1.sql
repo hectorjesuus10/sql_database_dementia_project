@@ -11,7 +11,7 @@ CREATE TABLE Treatment (
 
 );
 
-CREATE TABLE patient_treatment(
+CREATE TABLE Patient_treatment(
     drug_name VARCHAR(50),
     patient_ID CHAR(12),
     start_date DATE,

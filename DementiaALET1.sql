@@ -1,5 +1,4 @@
-CREATE DATABASE Dementia;
-USE Dementia;
+
 CREATE DATABASE DEMENTIA;
 USE DEMENTIA;
 CREATE TABLE Insurance (
@@ -95,9 +94,18 @@ CREATE TABLE patient_comorbitity(
     Comorbitiy_patient_ID INT AUTO_INCREMENT PRIMARY KEY ,
 );
 
+CREATE TABLE insurance_therapy_coverage(
+    FOREIGN key (Drug_name) REFERENCES Treatment(Drug_name),
+    FOREIGN key (Cost) REFERENCES Treatment(cost),
+    PRIMARY KEY (Drug_name),
+    insurance_therapy_coverage FLOAT(5,2)
+
+)
+
 SELECT * FROM patients
 Where Type_of_dementia = 'Vascular';
 
+SELECT *
 FROM Patient
 JOIN patient_treatment
     ON Patient.Patient_ID = patient_treatment.patient_ID
@@ -105,3 +113,5 @@ JOIN Treatment
     ON patient_treatment.Drug_name = Treatment.Drug_name
 WHERE Patient.Type_of_dementia = 'Vascular'
   AND Treatment.Drug_name = 'Donezepil';
+
+  

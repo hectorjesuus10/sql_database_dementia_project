@@ -951,12 +951,14 @@ INSERT INTO insurance_therapy_coverage (Drug_name, Cost, insurance_therapy_cover
 ('Drug_052', 179.76, 53.32),
 ('Drug_053', 136.46, 86.96);
 
-SELECT * FROM Patient
-WHERE Type_of_dementia = 'Vascular';
-
 -- -----------------------------------------------------------------------------------
 --  3 Complex Queries --------------------------------------------------------
 -- -----------------------------------------------------------------------------------
+
+-- Query 1-2------
+SELECT * FROM Patient
+WHERE Type_of_dementia = 'Vascular';
+
 SELECT *
 FROM Patient
 JOIN patient_treatment
@@ -967,3 +969,13 @@ WHERE Patient.Type_of_dementia = 'Vascular'
   AND Treatment.Drug_name = 'Donezepil';
 
 
+-- Query 2-------
+SELECT *
+FROM `State`
+WHERE `Number_of_inhabitants` >= 2000000 AND `GDP_per_person` >= 70000.00;
+
+-- Query 3-------
+SELECT DISTINCT `Patient_ID`
+FROM `patients_treated_at_gp`
+WHERE `Patient_ID` NOT IN
+    (SELECT `Patient_ID` FROM `Patient`); -- Will work when we populate the mock data more!

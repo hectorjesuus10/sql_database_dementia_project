@@ -4,6 +4,7 @@ databasescourse/
 .venv/
 databases/
 venv_project/
+Databased/
 
 # Python cache
 __pycache__/

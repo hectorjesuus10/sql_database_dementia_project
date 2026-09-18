@@ -41,7 +41,7 @@ CREATE TABLE GP (
 );
 
 CREATE TABLE Patient(
-    Patient_ID CHAR(12) DEFAULT (UUID()) PRIMARY KEY,
+    Patient_ID CHAR(12) DEFAULT (UUID()) PRIMARY KEY,  -- creating a patient_id which is unique and is genertated a new one for each patient. As the hospital can have many patients UUID is used
     Age INT,
     Sex VARCHAR(6),
     Ethnicity VARCHAR(20),
@@ -53,7 +53,7 @@ CREATE TABLE Patient(
     Marital_status VARCHAR(20),
     Treatment VARCHAR(50),
     State VARCHAR(50),
-    FOREIGN KEY (Treatment) REFERENCES Treatment(Drug_name),
+    FOREIGN KEY (Treatment) REFERENCES Treatment(Drug_name), -- drug_name that the patient takes is the name from the Treatment table
     FOREIGN KEY (State) REFERENCES State(State_name)
 
 

@@ -70,8 +70,8 @@ CREATE TABLE state_insurance (
 
 CREATE TABLE treatments_available_in_states (
     state_treatment_ID INT AUTO_INCREMENT,
-    Therapy             VARCHAR(50) NOT NULL,
-    State_name          VARCHAR(50) NOT NULL,
+    Therapy VARCHAR(50) NOT NULL,
+    State_name VARCHAR(50) NOT NULL,
     PRIMARY KEY (state_treatment_ID),
     UNIQUE (Therapy, State_name),
     FOREIGN KEY (Therapy) REFERENCES Treatment(Drug_name)

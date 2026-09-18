@@ -63,7 +63,7 @@ INSERT INTO individual_insurance_plan (Patient_ID, Insurance_company_name, Insur
 ('PAT000000002', 'Aetna', 'Premium'),
 ('PAT000000003', 'UnitedHealth', 'Standard');
 
-INSERT INTO patient_comorbitity (Patient_ID, Comorbitity) VALUES
+INSERT INTO patient_Comorbidity (Patient_ID, Comorbidity) VALUES
 ('PAT000000001', 'Hypertension'),
 ('PAT000000002', 'Diabetes'),
 ('PAT000000003', 'Depression');
@@ -701,7 +701,7 @@ INSERT INTO individual_insurance_plan (Patient_ID, Insurance_company_name, Insur
 ('PAT000000052', 'Simply Healthcare', 'Gold POS 1500'),
 ('PAT000000053', 'WellSense Health', 'Silver PPO 2000');
 
-INSERT INTO patient_comorbitity (Patient_ID, Comorbitity) VALUES
+INSERT INTO  DEMENTIA.patient_Comorbidity(Patient_ID, Comorbidity) VALUES
 ('PAT000000004', 'Hypertension'),
 ('PAT000000005', 'Diabetes'),
 ('PAT000000006', 'Depression'),
@@ -804,3 +804,4 @@ INSERT INTO insurance_therapy_coverage (Drug_name, Cost, insurance_therapy_cover
 ('Clarimmine', 70.19, 44.09),
 ('Synapmine', 179.76, 53.32),
 ('Amylomine', 136.46, 86.96);
+

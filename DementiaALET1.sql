@@ -4,19 +4,19 @@ USE DEMENTIA;
 
 CREATE TABLE State (
     State_name VARCHAR(50) PRIMARY KEY,
-    Climate ENUM('Tropical','Arid','Mediterranean','Humid Subtropical','Humid Continental','Subarctic','Highland','Polar'), -- creates a list of allowed climates 
+    Climate ENUM('Tropical','Arid','Mediterranean','Humid Subtropical','Humid Continental','Subarctic','Highland','Polar'), 
     Number_of_inhabitants BIGINT,
     Number_of_hospitals INT,
     Male_to_female_ratio DECIMAL(4,2),
     GDP_per_person DECIMAL(10,2),
     Healthcare_funding DECIMAL(15,2),
-    avg_dementia_rate DECIMAL(5,2),
+    avg_dementia_rate DECIMAL(5,2)
 );
 
 
 CREATE TABLE Insurance (
     Insurance_company_name VARCHAR(50) PRIMARY KEY,
-    Insurance_plan VARCHAR(20) UNIQUE, --needs to be unique for the bridge table GP_insurance
+    Insurance_plan VARCHAR(20) UNIQUE, 
     Number_of_people_covered INT
 );
 
@@ -30,17 +30,17 @@ CREATE TABLE Treatment (
 );
 
 CREATE TABLE GP (
-    GP_ID VARCHAR(10) PRIMARY KEY, -- Varchar(10) because in the US GP_ID is composed of only 10 characters
+    GP_ID VARCHAR(10) PRIMARY KEY, 
     Price DECIMAL(10,2),
     State VARCHAR(50),
     FOREIGN KEY (State) REFERENCES State(State_name),
     Medical_practise_name VARCHAR(20),
-    GP_name VARCHAR(20) UNIQUE -- We need it to be unique to create a foreign key for the bridge table patients_treatment
+    GP_name VARCHAR(20) UNIQUE 
 
 );
 
 CREATE TABLE Patient(
-    Patient_ID CHAR(12) DEFAULT (UUID()) PRIMARY KEY,  -- creating a patient_id which is unique and is genertated a new one for each patient. As the hospital can have many patients UUID is used
+    Patient_ID CHAR(12) DEFAULT (UUID()) PRIMARY KEY,  
     Age INT,
     Sex VARCHAR(6),
     Ethnicity VARCHAR(20),
@@ -52,7 +52,7 @@ CREATE TABLE Patient(
     Marital_status VARCHAR(20),
     Treatment VARCHAR(50),
     State VARCHAR(50),
-    FOREIGN KEY (Treatment) REFERENCES Treatment(Drug_name), -- drug_name that the patient takes is the name from the Treatment table
+    FOREIGN KEY (Treatment) REFERENCES Treatment(Drug_name), 
     FOREIGN KEY (State) REFERENCES State(State_name)
 
 
@@ -86,7 +86,7 @@ CREATE TABLE Patient_treatment(
     start_date DATE,
     end_date DATE,
     outcome VARCHAR(50),
-    PRIMARY KEY (drug_name, patient_ID),  -- creates a composite primary key of drugname and patient as patient nor drugname is unique but combined it is
+    PRIMARY KEY (drug_name, patient_ID),  
     FOREIGN KEY (drug_name) REFERENCES Treatment(drug_name),
     FOREIGN KEY (patient_ID) REFERENCES Patient(Patient_ID)
 
@@ -128,12 +128,14 @@ CREATE TABLE individual_insurance_plan(
     );
 
 
-CREATE TABLE patient_comorbitity(  -- creating a table for the different comorbitity a patient has
+CREATE TABLE patient_comorbidity (
     Patient_ID CHAR(12),
-    FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
-    Comorbitity VARCHAR (70),
-    Comorbitiy_patient_ID INT AUTO_INCREMENT PRIMARY KEY
+    Comorbidity VARCHAR(70),
+    Comorbidity_patient_ID INT AUTO_INCREMENT PRIMARY KEY,
+    
+    FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)
 );
+
 
 CREATE TABLE insurance_therapy_coverage(
     Drug_name VARCHAR(50),

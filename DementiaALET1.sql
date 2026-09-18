@@ -966,7 +966,7 @@ JOIN patient_treatment
 JOIN Treatment
     ON patient_treatment.Drug_name = Treatment.Drug_name
 WHERE Patient.Type_of_dementia = 'Alzheimer'
-  AND Treatment.Drug_name LIKE 'Donezepil'; -- made I change here because there was only one patient with cardiovascular disease
+  AND Treatment.Drug_name LIKE 'Donezepil'; 
 
 
 -- Query 2-------

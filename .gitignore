@@ -1,0 +1,29 @@
+databasescourse/
+.DS_Store
+# Virtual environment
+.venv/
+databases/
+venv_project/
+Databased/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# Build / distribution
+build/
+dist/
+*.egg-info/
+
+# IDEs
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+lectures/
+sakila-db/
+articulo 2.pdf

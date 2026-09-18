@@ -965,8 +965,8 @@ JOIN patient_treatment
     ON Patient.Patient_ID = patient_treatment.patient_ID
 JOIN Treatment
     ON patient_treatment.Drug_name = Treatment.Drug_name
-WHERE Patient.Type_of_dementia = 'Vascular'
-  AND Treatment.Drug_name LIKE 'R%'; -- made I change here because there was only one patient with cardiovascular disease
+WHERE Patient.Type_of_dementia = 'Alzheimer'
+  AND Treatment.Drug_name LIKE 'Donezepil'; -- made I change here because there was only one patient with cardiovascular disease
 
 
 -- Query 2-------

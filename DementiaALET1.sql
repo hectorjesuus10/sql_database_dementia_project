@@ -3,14 +3,14 @@ CREATE DATABASE DEMENTIA;
 USE DEMENTIA;
 
 CREATE TABLE State (
-    State_name          VARCHAR(50) PRIMARY KEY,
-    Climate             ENUM('Tropical','Arid','Mediterranean','Humid Subtropical','Humid Continental','Subarctic','Highland','Polar'),
+    State_name VARCHAR(50) PRIMARY KEY,
+    Climate ENUM('Tropical','Arid','Mediterranean','Humid Subtropical','Humid Continental','Subarctic','Highland','Polar'), -- creates a list of allowed climates 
     Number_of_inhabitants BIGINT,
-    Number_of_hospitals   INT,
-    Male_to_female_ratio  DECIMAL(4,2),
-    GDP_per_person        DECIMAL(10,2),
-    Healthcare_funding    DECIMAL(15,2),
-    avg_dementia_rate     DECIMAL(5,2),
+    Number_of_hospitals INT,
+    Male_to_female_ratio DECIMAL(4,2),
+    GDP_per_person DECIMAL(10,2),
+    Healthcare_funding DECIMAL(15,2),
+    avg_dementia_rate DECIMAL(5,2),
 );
 
 
@@ -86,7 +86,7 @@ CREATE TABLE Patient_treatment(
     start_date DATE,
     end_date DATE,
     outcome VARCHAR(50),
-    PRIMARY KEY (drug_name, patient_ID),
+    PRIMARY KEY (drug_name, patient_ID),  -- creates a composite primary key of drugname and patient as patient nor drugname is unique but combined it is
     FOREIGN KEY (drug_name) REFERENCES Treatment(drug_name),
     FOREIGN KEY (patient_ID) REFERENCES Patient(Patient_ID)
 
@@ -128,7 +128,7 @@ CREATE TABLE individual_insurance_plan(
     );
 
 
-CREATE TABLE patient_comorbitity(
+CREATE TABLE patient_comorbitity(  -- creating a table for the different comorbitity a patient has
     Patient_ID CHAR(12),
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
     Comorbitity VARCHAR (70),

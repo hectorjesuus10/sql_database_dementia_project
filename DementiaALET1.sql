@@ -3,16 +3,16 @@ CREATE DATABASE DEMENTIA;
 USE DEMENTIA;
 
 CREATE TABLE State (
-    State_name          VARCHAR(50) NOT NULL,
-    Climate             ENUM('Tropical','Arid','Mediterranean','Humid Subtropical','Humid Continental','Subarctic','Highland','Polar') NOT NULL,
-    Number_of_inhabitants BIGINT UNSIGNED NOT NULL,
-    Number_of_hospitals   INT UNSIGNED NOT NULL,
-    Male_to_female_ratio  DECIMAL(4,2) NOT NULL,
-    GDP_per_person        DECIMAL(10,2) NOT NULL,
-    Healthcare_funding    DECIMAL(15,2) NOT NULL,
-    avg_dementia_rate     DECIMAL(5,2) NOT NULL,
+    State_name          VARCHAR(50) PRIMARY KEY,
+    Climate             ENUM('Tropical','Arid','Mediterranean','Humid Subtropical','Humid Continental','Subarctic','Highland','Polar'),
+    Number_of_inhabitants BIGINT,
+    Number_of_hospitals   INT,
+    Male_to_female_ratio  DECIMAL(4,2),
+    GDP_per_person        DECIMAL(10,2),
+    Healthcare_funding    DECIMAL(15,2),
+    avg_dementia_rate     DECIMAL(5,2),
     PRIMARY KEY (State_name)
-) ENGINE=InnoDB;
+);
 
 
 CREATE TABLE Insurance (
@@ -60,26 +60,26 @@ CREATE TABLE Patient(
 );
 
 CREATE TABLE state_insurance (
-    State_name              VARCHAR(50) NOT NULL,
-    Insurance_company_name  VARCHAR(50) NOT NULL,
+    State_name VARCHAR(50),
+    Insurance_company_name  VARCHAR(50),
     PRIMARY KEY (State_name, Insurance_company_name),
     FOREIGN KEY (State_name) REFERENCES State(State_name)
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (Insurance_company_name) REFERENCES Insurance(Insurance_company_name)
         ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE treatments_available_in_states (
     state_treatment_ID INT AUTO_INCREMENT,
-    Therapy             VARCHAR(50) NOT NULL,
-    State_name          VARCHAR(50) NOT NULL,
+    Therapy VARCHAR(50),
+    State_name VARCHAR(50),
     PRIMARY KEY (state_treatment_ID),
     UNIQUE (Therapy, State_name),
     FOREIGN KEY (Therapy) REFERENCES Treatment(Drug_name)
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (State_name) REFERENCES State(State_name)
         ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE Patient_treatment(
     drug_name VARCHAR(50),

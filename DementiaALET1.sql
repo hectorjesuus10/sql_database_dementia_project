@@ -95,8 +95,7 @@ CREATE TABLE Patient_treatment(
 CREATE TABLE GP_insurance (
     GP_ID VARCHAR(10),
     Insurance_plan VARCHAR(20),
-    GP_insurance_coverage DECIMAL(5,2), -- It will represent a percentage of the price of a GP visit covered by the insurance (e.g., 80.00 = 80%)
-    PRIMARY KEY (GP_ID, Insurance_plan),
+    GP_insurance_coverage DECIMAL(5,2), 
     FOREIGN KEY (GP_ID) REFERENCES GP(GP_ID),
     FOREIGN KEY (Insurance_plan) REFERENCES Insurance(Insurance_plan)
 );

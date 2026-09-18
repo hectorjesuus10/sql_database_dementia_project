@@ -16,11 +16,11 @@ CREATE TABLE State (
 
 CREATE TABLE Insurance (
     Insurance_company_name VARCHAR(50) PRIMARY KEY,
-    Insurance_plan VARCHAR(20) UNIQUE,
+    Insurance_plan VARCHAR(20) UNIQUE, --needs to be unique for the bridge table GP_insurance
     Number_of_people_covered INT
 );
 
-CREATE TABLE Treatment (               --Treatment table to store information about the medicine name, its price, the state and the number of people treated. It has to foraign key connected to the table state, specifically the the state name -- 
+CREATE TABLE Treatment (
     drug_name VARCHAR(50) PRIMARY KEY,
     cost DECIMAL(10,2),
     State VARCHAR(50),
@@ -30,12 +30,12 @@ CREATE TABLE Treatment (               --Treatment table to store information ab
 );
 
 CREATE TABLE GP (
-    GP_ID VARCHAR(10) PRIMARY KEY,
+    GP_ID VARCHAR(10) PRIMARY KEY, -- Varchar(10) because in the US GP_ID is composed of only 10 characters
     Price DECIMAL(10,2),
     State VARCHAR(50),
     FOREIGN KEY (State) REFERENCES State(State_name),
     Medical_practise_name VARCHAR(20),
-    GP_name VARCHAR(20) UNIQUE
+    GP_name VARCHAR(20) UNIQUE -- We need it to be unique to create a foreign key for the bridge table patients_treatment
 
 );
 
@@ -80,7 +80,7 @@ CREATE TABLE treatments_available_in_states (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE Patient_treatment(       -- This table has a double PK which makes the drug name and the patient ID unique. This table is useful to know when did the patient start, finish and how are they doing with their treatments. It has two foreign keys referencing table treatment and patient. -- 
+CREATE TABLE Patient_treatment(
     drug_name VARCHAR(50),
     patient_ID CHAR(12),
     start_date DATE,

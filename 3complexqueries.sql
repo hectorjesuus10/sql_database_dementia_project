@@ -23,9 +23,7 @@ WHERE Patient.Type_of_dementia = 'Alzheimer'
   AND Treatment.Drug_name LIKE 'Cognizol'; 
 
 
-SELECT TABLE_SCHEMA, TABLE_NAME
-FROM information_schema.TABLES
-WHERE TABLE_NAME = 'patient_comorbidity';
+
 
 -- Query 2-------
 SELECT *

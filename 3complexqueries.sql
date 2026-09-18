@@ -20,8 +20,12 @@ JOIN patient_treatment
 JOIN Treatment
     ON patient_treatment.Drug_name = Treatment.Drug_name
 WHERE Patient.Type_of_dementia = 'Alzheimer'
-  AND Treatment.Drug_name LIKE 'Donezepil'; 
+  AND Treatment.Drug_name LIKE 'Cognizol'; 
 
+
+SELECT TABLE_SCHEMA, TABLE_NAME
+FROM information_schema.TABLES
+WHERE TABLE_NAME = 'patient_comorbidity';
 
 -- Query 2-------
 SELECT *
@@ -32,5 +36,5 @@ WHERE `Number_of_inhabitants` >= 2000000 AND `GDP_per_person` >= 70000.00;
 SELECT DISTINCT `Patient_ID`
 FROM `Patient`
 WHERE `Patient_ID` NOT IN
-    (SELECT `Patient_ID` FROM patient_comorbitity
-     WHERE `Comorbitity` = 'Diabetes'); 
+    (SELECT `Patient_ID` FROM patient_Comorbidity
+     WHERE `Comorbidity` = 'Diabetes'); 

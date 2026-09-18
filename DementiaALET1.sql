@@ -20,7 +20,7 @@ CREATE TABLE Insurance (
     Number_of_people_covered INT
 );
 
-CREATE TABLE Treatment (
+CREATE TABLE Treatment (               --Treatment table to store information about the medicine name, its price, the state and the number of people treated. It has to foraign key connected to the table state, specifically the the state name -- 
     drug_name VARCHAR(50) PRIMARY KEY,
     cost DECIMAL(10,2),
     State VARCHAR(50),
@@ -80,7 +80,7 @@ CREATE TABLE treatments_available_in_states (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE Patient_treatment(
+CREATE TABLE Patient_treatment(       -- This table has a double PK which makes the drug name and the patient ID unique. This table is useful to know when did the patient start, finish and how are they doing with their treatments. It has two foreign keys referencing table treatment and patient. -- 
     drug_name VARCHAR(50),
     patient_ID CHAR(12),
     start_date DATE,

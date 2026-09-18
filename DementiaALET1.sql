@@ -143,3 +143,6 @@ CREATE TABLE insurance_therapy_coverage(
     insurance_therapy_coverage FLOAT(5,2)
 
 );
+
+
+

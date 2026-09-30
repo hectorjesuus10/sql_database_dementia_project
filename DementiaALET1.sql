@@ -41,18 +41,17 @@ CREATE TABLE GP (
 
 CREATE TABLE Patient(
     Patient_ID CHAR(12) DEFAULT (UUID()) PRIMARY KEY,  
-    Age INT,
-    Sex VARCHAR(6),
-    Ethnicity VARCHAR(20),
+    Age INT NOT NULL,
+    Sex ENUM('Male','Female','Other') NOT NULL,
+    Ethnicity VARCHAR(20) NOT NULL,
     Diet VARCHAR (30),
-    BMI FLOAT(4,2),
+    BMI FLOAT(4,2) NOT NULL,
     Income FLOAT,
-    Type_of_dementia VARCHAR(40),
-    Level_of_highest_Education VARCHAR(40),
-    Marital_status VARCHAR(20),
-    Treatment VARCHAR(50),
-    State VARCHAR(50),
-    FOREIGN KEY (Treatment) REFERENCES Treatment(Drug_name), 
+    Type_of_dementia VARCHAR(40) NOT NULL ,
+    Level_of_highest_Education VARCHAR(40) NOT NULL,
+    Marital_status ENUM ('Single','Maried','Divorced', 'In a relationship','Other'),
+    Treatment VARCHAR(50) DEFAULT('No treatment'),
+    State VARCHAR(50) NOT NULL,
     FOREIGN KEY (State) REFERENCES State(State_name)
 
 

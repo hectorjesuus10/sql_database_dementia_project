@@ -23,7 +23,7 @@ CREATE TABLE Insurance (
 
 CREATE TABLE Treatment (
     drug_name VARCHAR(50) PRIMARY KEY,
-    cost DECIMAL(10,2),
+    cost DECIMAL(10,2) UNIQUE,
     State VARCHAR(50),
     number_of_people_treated INT,
     FOREIGN KEY (State) REFERENCES State(state_name)
@@ -61,10 +61,12 @@ CREATE TABLE Patient(
 CREATE TABLE state_insurance (
     State_name VARCHAR(50),
     Insurance_company_name VARCHAR(50),
-    PRIMARY KEY (State_name, Insurance_company_name),
+    Insurance_plan VARCHAR(50),
+    PRIMARY KEY (State_name, Insurance_company_name, Insurance_plan),
     FOREIGN KEY (State_name) REFERENCES State(State_name)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (Insurance_company_name) REFERENCES Insurance(Insurance_company_name)
+    FOREIGN KEY (Insurance_company_name, Insurance_plan) 
+        REFERENCES Insurance(Insurance_company_name, Insurance_plan)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -94,13 +96,13 @@ CREATE TABLE Patient_treatment(
 
 CREATE TABLE GP_insurance (
     GP_ID VARCHAR(10),
-    Insurance_plan VARCHAR(20),
-    Coverage_Percentage DECIMAL(3,2),
-    PRIMARY KEY(GP_ID, Insurance_plan),
+    Insurance_company_name VARCHAR(50),
+    Insurance_plan VARCHAR(50),
+    Coverage_Percentage DECIMAL(5,2),
+    PRIMARY KEY (GP_ID, Insurance_company_name, Insurance_plan),
     FOREIGN KEY (GP_ID) REFERENCES GP(GP_ID),
-    FOREIGN KEY (Insurance_plan) REFERENCES Insurance(Insurance_plan)
+    FOREIGN KEY (Insurance_company_name, Insurance_plan) REFERENCES Insurance(Insurance_company_name, Insurance_plan)
 );
-
 CREATE TABLE patients_treated_at_gp (
     Patient_ID CHAR(12),
     GP_name VARCHAR(20),
@@ -117,15 +119,14 @@ CREATE TABLE GP_treatment (
     FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name)
 );
 
-CREATE TABLE individual_insurance_plan(
-    Patient_ID CHAR(12),
+CREATE TABLE individual_insurance_plan (
+    Patient_ID CHAR(36),
     Insurance_company_name VARCHAR(50),
-    Insurance_plan VARCHAR(20),
+    Insurance_plan VARCHAR(50),
+    PRIMARY KEY (Patient_ID, Insurance_company_name, Insurance_plan),
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
-    FOREIGN KEY (Insurance_company_name) REFERENCES Insurance(Insurance_company_name),
-    FOREIGN KEY (Insurance_plan) REFERENCES Insurance(Insurance_plan),
-    PRIMARY KEY (Patient_ID,Insurance_company_name)
-    );
+    FOREIGN KEY (Insurance_company_name, Insurance_plan) REFERENCES Insurance(Insurance_company_name, Insurance_plan)
+);
 
 
 CREATE TABLE patient_comorbidity (

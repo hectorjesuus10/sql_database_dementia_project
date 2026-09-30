@@ -16,7 +16,7 @@ CREATE TABLE State (
 
 CREATE TABLE Insurance (
     Insurance_company_name VARCHAR(50),
-    Insurance_plan VARCHAR(20), 
+    Insurance_plan VARCHAR(50), 
     Number_of_people_covered INT,
     PRIMARY KEY(Insurance_company_name,Insurance_plan)
 );
@@ -139,10 +139,11 @@ CREATE TABLE patient_comorbidity (
 
 CREATE TABLE insurance_therapy_coverage(
     Drug_name VARCHAR(50),
-    Cost DECIMAL(10,2),
+    cost DECIMAL(10,2),
     FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name),
+    FOREIGN KEY (cost) REFERENCES Treatment(cost),
     PRIMARY KEY (Drug_name),
-    insurance_therapy_coverage FLOAT(5,2)
+    insurance_therapy_coverage_percentage FLOAT(3,2)
 
 );
 

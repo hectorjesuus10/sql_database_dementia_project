@@ -15,9 +15,10 @@ CREATE TABLE State (
 
 
 CREATE TABLE Insurance (
-    Insurance_company_name VARCHAR(50) PRIMARY KEY,
-    Insurance_plan VARCHAR(20) UNIQUE, 
-    Number_of_people_covered INT
+    Insurance_company_name VARCHAR(50),
+    Insurance_plan VARCHAR(20), 
+    Number_of_people_covered INT,
+    PRIMARY KEY(Insurance_company_name,Insurance_plan)
 );
 
 CREATE TABLE Treatment (
@@ -35,7 +36,7 @@ CREATE TABLE GP (
     State VARCHAR(50),
     FOREIGN KEY (State) REFERENCES State(State_name),
     Medical_practise_name VARCHAR(20),
-    GP_name VARCHAR(20) UNIQUE 
+    GP_name VARCHAR(100) UNIQUE 
 
 );
 
@@ -95,7 +96,8 @@ CREATE TABLE Patient_treatment(
 CREATE TABLE GP_insurance (
     GP_ID VARCHAR(10),
     Insurance_plan VARCHAR(20),
-    GP_insurance_coverage DECIMAL(5,2), 
+    Coverage_Percentage DECIMAL(3,2),
+    PRIMARY KEY(GP_ID, Insurance_plan),
     FOREIGN KEY (GP_ID) REFERENCES GP(GP_ID),
     FOREIGN KEY (Insurance_plan) REFERENCES Insurance(Insurance_plan)
 );

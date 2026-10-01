@@ -24,11 +24,8 @@ CREATE TABLE Insurance (
 CREATE TABLE Treatment (
     Treatment_id INT AUTO_INCREMENT PRIMARY KEY,
     drug_name VARCHAR(50) UNIQUE,
-    cost DECIMAL(10,2) UNIQUE,
-    State VARCHAR(50),
-    number_of_people_treated INT,
-    FOREIGN KEY (State) REFERENCES State(state_name)
-
+    cost DECIMAL(10,2),
+    number_of_people_treated INT
 );
 
 CREATE TABLE GP (
@@ -51,7 +48,7 @@ CREATE TABLE Patient(
     Income FLOAT,
     Type_of_dementia VARCHAR(40) NOT NULL ,
     Level_of_highest_Education VARCHAR(40) NOT NULL,
-    Marital_status ENUM ('Single','Maried','Divorced', 'In a relationship','Other'),
+    Marital_status ENUM ('Single','Married','Divorced', 'In a relationship','Other'),
     Treatment VARCHAR(50) DEFAULT('No treatment'),
     State VARCHAR(50) NOT NULL,
     FOREIGN KEY (State) REFERENCES State(State_name)  ON DELETE CASCADE ON UPDATE CASCADE
@@ -89,7 +86,9 @@ CREATE TABLE Patient_treatment(
     patient_ID INT,
     start_date DATE,
     end_date DATE,
-    outcome VARCHAR(50),  
+    treatment_status ENUM('Ongoing', 'Discontinued') NOT NULL DEFAULT 'Ongoing', 
+    health_outcome ENUM('Improved','Stable','Worsened') NULL,
+    UNIQUE (drug_name, patient_ID, start_date),  -- Makes a unique combination of drugname, patient and start date as none of them are unique individually. Without including start_date, it would be impossible that a patient take the same treatment multiple times in different periods --
     FOREIGN KEY (drug_name) REFERENCES Treatment(drug_name)  ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (patient_ID) REFERENCES Patient(Patient_ID)  ON DELETE CASCADE ON UPDATE CASCADE
 

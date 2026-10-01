@@ -22,7 +22,7 @@ CREATE TABLE Insurance (
 );
 
 CREATE TABLE Treatment (
-    Treatment_id INT AUTO_INCREMENT PRIMARY KEY
+    Treatment_id INT AUTO_INCREMENT PRIMARY KEY,
     drug_name VARCHAR(50) UNIQUE,
     cost DECIMAL(10,2) UNIQUE,
     State VARCHAR(50),
@@ -84,12 +84,12 @@ CREATE TABLE treatments_available_in_states (
 );
 
 CREATE TABLE Patient_treatment(
+    patient_treatment_id INT AUTO_INCREMENT PRIMARY KEY,
     drug_name VARCHAR(50),
     patient_ID INT,
     start_date DATE,
     end_date DATE,
-    outcome VARCHAR(50),
-    PRIMARY KEY (drug_name, patient_ID),  
+    outcome VARCHAR(50),  
     FOREIGN KEY (drug_name) REFERENCES Treatment(drug_name)  ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (patient_ID) REFERENCES Patient(Patient_ID)  ON DELETE CASCADE ON UPDATE CASCADE
 
@@ -132,7 +132,7 @@ CREATE TABLE individual_insurance_plan (
 
 CREATE TABLE patient_comorbidity (
     Patient_ID INT,
-    Comorbidity VARCHAR(70),
+    Disease_name VARCHAR(70),
     Comorbidity_patient_ID INT AUTO_INCREMENT PRIMARY KEY,
     
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)  ON DELETE CASCADE ON UPDATE CASCADE
@@ -148,6 +148,8 @@ CREATE TABLE insurance_therapy_coverage(
     insurance_therapy_coverage_percentage FLOAT(3,2)
 
 );
+
+
 
 
 

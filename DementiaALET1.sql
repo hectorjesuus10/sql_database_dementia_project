@@ -22,7 +22,8 @@ CREATE TABLE Insurance (
 );
 
 CREATE TABLE Treatment (
-    drug_name VARCHAR(50) PRIMARY KEY,
+    Treatment_id INT AUTO_INCREMENT PRIMARY KEY
+    drug_name VARCHAR(50) UNIQUE,
     cost DECIMAL(10,2) UNIQUE,
     State VARCHAR(50),
     number_of_people_treated INT,
@@ -41,7 +42,7 @@ CREATE TABLE GP (
 );
 
 CREATE TABLE Patient(
-    Patient_ID CHAR(12) DEFAULT (UUID()) PRIMARY KEY,  
+    Patient_ID INT AUTO_INCREMENT PRIMARY KEY,  
     Age INT NOT NULL,
     Sex ENUM('Male','Female','Other') NOT NULL,
     Ethnicity VARCHAR(20) NOT NULL,
@@ -53,7 +54,7 @@ CREATE TABLE Patient(
     Marital_status ENUM ('Single','Maried','Divorced', 'In a relationship','Other'),
     Treatment VARCHAR(50) DEFAULT('No treatment'),
     State VARCHAR(50) NOT NULL,
-    FOREIGN KEY (State) REFERENCES State(State_name)
+    FOREIGN KEY (State) REFERENCES State(State_name)  ON DELETE CASCADE ON UPDATE CASCADE
 
 
 );
@@ -84,13 +85,13 @@ CREATE TABLE treatments_available_in_states (
 
 CREATE TABLE Patient_treatment(
     drug_name VARCHAR(50),
-    patient_ID CHAR(12),
+    patient_ID INT,
     start_date DATE,
     end_date DATE,
     outcome VARCHAR(50),
     PRIMARY KEY (drug_name, patient_ID),  
-    FOREIGN KEY (drug_name) REFERENCES Treatment(drug_name),
-    FOREIGN KEY (patient_ID) REFERENCES Patient(Patient_ID)
+    FOREIGN KEY (drug_name) REFERENCES Treatment(drug_name)  ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (patient_ID) REFERENCES Patient(Patient_ID)  ON DELETE CASCADE ON UPDATE CASCADE
 
 );
 
@@ -100,15 +101,15 @@ CREATE TABLE GP_insurance (
     Insurance_plan VARCHAR(50),
     Coverage_Percentage DECIMAL(5,2),
     PRIMARY KEY (GP_ID, Insurance_company_name, Insurance_plan),
-    FOREIGN KEY (GP_ID) REFERENCES GP(GP_ID),
+    FOREIGN KEY (GP_ID) REFERENCES GP(GP_ID) ,
     FOREIGN KEY (Insurance_company_name, Insurance_plan) REFERENCES Insurance(Insurance_company_name, Insurance_plan)
 );
 CREATE TABLE patients_treated_at_gp (
-    Patient_ID CHAR(12),
-    GP_name VARCHAR(20),
+    Patient_ID INT NOT NULL,
+    GP_name VARCHAR(20) NOT NULL,
     PRIMARY KEY (Patient_ID, GP_name),
-    FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
-    FOREIGN KEY (GP_name) REFERENCES GP(GP_name)
+    FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)  ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (GP_name) REFERENCES GP(GP_name)  ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE GP_treatment (
@@ -120,7 +121,7 @@ CREATE TABLE GP_treatment (
 );
 
 CREATE TABLE individual_insurance_plan (
-    Patient_ID CHAR(36),
+    Patient_ID INT,
     Insurance_company_name VARCHAR(50),
     Insurance_plan VARCHAR(50),
     PRIMARY KEY (Patient_ID, Insurance_company_name, Insurance_plan),
@@ -130,11 +131,11 @@ CREATE TABLE individual_insurance_plan (
 
 
 CREATE TABLE patient_comorbidity (
-    Patient_ID CHAR(12),
+    Patient_ID INT,
     Comorbidity VARCHAR(70),
     Comorbidity_patient_ID INT AUTO_INCREMENT PRIMARY KEY,
     
-    FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)
+    FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)  ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -142,7 +143,7 @@ CREATE TABLE insurance_therapy_coverage(
     Drug_name VARCHAR(50),
     cost DECIMAL(10,2),
     FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name),
-    FOREIGN KEY (cost) REFERENCES Treatment(cost),
+    FOREIGN KEY (cost) REFERENCES Treatment(cost)  ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (Drug_name),
     insurance_therapy_coverage_percentage FLOAT(3,2)
 

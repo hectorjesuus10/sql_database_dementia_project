@@ -4,15 +4,28 @@ USE DEMENTIA;
 
 CREATE TABLE State (
     State_name VARCHAR(50) PRIMARY KEY,
-    Climate ENUM('Tropical','Arid','Mediterranean','Humid Subtropical','Humid Continental','Subarctic','Highland','Polar'), 
-    Number_of_inhabitants BIGINT,
-    Number_of_hospitals INT,
-    Male_to_female_ratio DECIMAL(4,2),
-    GDP_per_person DECIMAL(10,2),
-    Healthcare_funding DECIMAL(15,2),
-    avg_dementia_rate DECIMAL(5,2)
+    Climate ENUM('Tropical','Arid','Mediterranean','Humid Subtropical','Humid Continental','Subarctic','Highland','Polar') NOT NULL
 );
 
+CREATE TABLE State_year_stats (
+    State_name VARCHAR(50) NOT NULL,
+    Stats_year SMALLINT NOT NULL,
+    Number_of_inhabitants BIGINT NOT NULL,
+    Number_of_hospitals INT NOT NULL,
+    Male_to_female_ratio DECIMAL(4,2) NOT NULL,
+    GDP_per_person DECIMAL(10,2) NOT NULL,        -- USD per year
+    Healthcare_funding DECIMAL(15,2) NOT NULL,
+    avg_dementia_rate DECIMAL(5,2) NOT NULL,      -- percent
+    PRIMARY KEY (State_name, Stats_year),
+    FOREIGN KEY (State_name) REFERENCES State(State_name) ON DELETE CASCADE ON UPDATE CASCADE,
+    CHECK (Stats_year BETWEEN 1900 AND 2100),
+    CHECK (Number_of_inhabitants > 0),
+    CHECK (Number_of_hospitals >= 0),
+    CHECK (Male_to_female_ratio > 0),
+    CHECK (GDP_per_person > 0),
+    CHECK (Healthcare_funding >= 0),
+    CHECK (avg_dementia_rate BETWEEN 0 AND 100)
+);
 
 CREATE TABLE Insurance (
     Insurance_company_name VARCHAR(50),
@@ -69,17 +82,12 @@ CREATE TABLE state_insurance (
 );
 
 CREATE TABLE treatments_available_in_states (
-    state_treatment_ID INT AUTO_INCREMENT,
-    Therapy VARCHAR(50) NOT NULL,
+    Treatment_id INT NOT NULL,
     State_name VARCHAR(50) NOT NULL,
-    PRIMARY KEY (state_treatment_ID),
-    UNIQUE (Therapy, State_name),
-    FOREIGN KEY (Therapy) REFERENCES Treatment(Drug_name)
-        ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (State_name) REFERENCES State(State_name)
-        ON DELETE CASCADE ON UPDATE CASCADE
+    PRIMARY KEY (Treatment_id, State_name),
+    FOREIGN KEY (Treatment_id) REFERENCES Treatment(Treatment_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (State_name) REFERENCES State(State_name) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 CREATE TABLE Patient_treatment(
     patient_treatment_id INT AUTO_INCREMENT PRIMARY KEY,
     drug_name VARCHAR(50),
@@ -112,11 +120,11 @@ CREATE TABLE patients_treated_at_gp (
 );
 
 CREATE TABLE GP_treatment (
-    GP_ID VARCHAR(10),
-    Drug_name VARCHAR(50),
-    PRIMARY KEY (GP_ID, Drug_name),
-    FOREIGN KEY (GP_ID) REFERENCES GP(GP_ID),
-    FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name)
+    GP_ID VARCHAR(10) NOT NULL,
+    Treatment_id INT NOT NULL,
+    PRIMARY KEY (GP_ID, Treatment_id),
+    FOREIGN KEY (GP_ID) REFERENCES GP(GP_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (Treatment_id) REFERENCES Treatment(Treatment_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE individual_insurance_plan (

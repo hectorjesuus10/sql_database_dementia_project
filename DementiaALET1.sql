@@ -48,7 +48,7 @@ CREATE TABLE GP (
     GP_ID VARCHAR(10) PRIMARY KEY, 
     Price DECIMAL(10,2),
     State VARCHAR(50),
-    Medical_practise_name VARCHAR(20),
+    Medical_practise_name VARCHAR(100),
     GP_name VARCHAR(100) UNIQUE, 
     FOREIGN KEY (State) REFERENCES State(State_name),
     CHECK (Price >= 0)

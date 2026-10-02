@@ -57,20 +57,20 @@ CREATE TABLE GP (
 
 CREATE TABLE Patient(
     Patient_ID INT AUTO_INCREMENT PRIMARY KEY,  
-    Age INT NOT NULL,
-    Sex ENUM('Male','Female','Other') NOT NULL,
-    Ethnicity VARCHAR(20) NOT NULL,
+    min_age INT ,
+    max_age INT ,
+    Sex ENUM('Male','Female','Other'),
+    Ethnicity VARCHAR(20) ,
     Diet VARCHAR (30),
-    BMI FLOAT(4,2) NOT NULL,
+    BMI FLOAT(4,2),
     Income FLOAT,
-    Type_of_dementia VARCHAR(40) NOT NULL ,
-    Level_of_highest_Education VARCHAR(40) NOT NULL,
+    Type_of_dementia VARCHAR(40)  ,
+    Level_of_highest_Education VARCHAR(40) ,
     Marital_status ENUM ('Single','Married','Divorced', 'In a relationship','Widowed','Other'),
-    Treatment VARCHAR(50) DEFAULT('No treatment'),
-    State VARCHAR(50) NOT NULL,
+    State VARCHAR(50) ,
     FOREIGN KEY (State) REFERENCES State(State_name)  ON DELETE CASCADE ON UPDATE CASCADE,
     CHECK (BMI BETWEEN 0 AND 50),
-    CHECK (AGE>0),
+    CHECK (max_age>=min_age),
     CHECK (Income >= 0)
 );
 
@@ -88,12 +88,15 @@ CREATE TABLE state_insurance (
 
 
 CREATE TABLE treatments_available_in_states (
-    Treatment_id INT NOT NULL,
+    drug_name VARCHAR(50),
     State_name VARCHAR(50) NOT NULL,
-    PRIMARY KEY (Treatment_id, State_name),
-    FOREIGN KEY (Treatment_id) REFERENCES Treatment(Treatment_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (drug_name, State_name),
+    FOREIGN KEY (drug_name) REFERENCES Treatment(drug_name) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (State_name) REFERENCES State(State_name) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+-- change treatment ID with drug name because it was more appropriate to the real data found
+
 CREATE TABLE Patient_treatment(
     patient_treatment_id INT AUTO_INCREMENT PRIMARY KEY,
     drug_name VARCHAR(50),
@@ -145,8 +148,8 @@ CREATE TABLE individual_insurance_plan (
 -- ^^in here it looks for the specific combination of insurance company name with that plan
 
 CREATE TABLE patient_comorbidity (
-    Patient_ID INT,
-    Disease_name VARCHAR(70),
+    Patient_ID INT NOT NULL,
+    Disease_name VARCHAR(70) NOT NULL,
     Comorbidity_patient_ID INT AUTO_INCREMENT PRIMARY KEY,
     
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)  ON DELETE CASCADE ON UPDATE CASCADE

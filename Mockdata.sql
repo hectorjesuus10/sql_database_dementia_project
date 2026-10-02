@@ -3,6 +3,39 @@
 --  Mock Data ------------------------------------------------------------------
 -- -----------------------------------------------------------------------------------
 USE DEMENTIA;
+
+INSERT INTO State (
+    State_name,
+    Climate,
+    Number_of_inhabitants,
+    Number_of_hospitals,
+    Male_to_female_ratio,
+    GDP_per_person,
+    Healthcare_funding,
+    avg_dementia_rate
+)
+VALUES
+(
+    'Alaska',
+    'Subarctic',
+    737270,
+    27,
+    1.09,
+    77974.15,
+    4200000000.00,
+    6.10
+),
+(
+    'Texas',
+    'Humid Subtropical',
+    31709821,
+    650,
+    0.97,
+    71800.00,
+    78500000000.00,
+    6.40
+);
+
 INSERT INTO State (State_name, Climate, Number_of_inhabitants, Number_of_hospitals, Male_to_female_ratio, GDP_per_person, Healthcare_funding, avg_dementia_rate) VALUES
 ('California', 'Mediterranean', 39000000, 450, 0.98, 75000.00, 25000000000.00, 6.50),
 ('Texas', 'Humid Subtropical', 30000000, 400, 1.02, 65000.00, 18000000000.00, 5.80),
@@ -23,15 +56,15 @@ INSERT INTO GP (GP_ID, Price, State, Medical_practise_name, GP_name) VALUES
 ('GP002', 90.00, 'Texas', 'Lonestar Health', 'Dr. Johnson'),
 ('GP003', 78.50, 'New York', 'Empire Care', 'Dr. Lee');
 
-INSERT INTO Patient (Patient_ID, Age, Sex, Ethnicity, Diet, BMI, Income, Type_of_dementia, Level_of_highest_Education, Marital_status, Treatment, State) VALUES
-('PAT000000001', 72, 'Female', 'Caucasian', 'Mediterranean', 24.50, 45000, 'Alzheimer', 'Bachelor', 'Married', 'Donezepil', 'California'),
-('PAT000000002', 68, 'Male', 'Hispanic', 'Balanced', 27.30, 38000, 'Vascular', 'High School', 'Widowed', 'Memantine', 'Texas'),
-('PAT000000003', 80, 'Female', 'African American', 'Low-fat', 22.10, 30000, 'Vascular', 'Master', 'Single', 'Rivastigmine', 'New York');
+INSERT INTO Patient ( Age, Sex, Ethnicity, Diet, BMI, Income, Type_of_dementia, Level_of_highest_Education, Marital_status, Treatment, State) VALUES
+( 72, 'Female', 'Caucasian', 'Mediterranean', 24.50, 45000, 'Alzheimer', 'Bachelor', 'Married', 'Donezepil', 'California'),
+( 68, 'Male', 'Hispanic', 'Balanced', 27.30, 38000, 'Vascular', 'High School', 'Other', 'Memantine', 'Texas'),
+( 80, 'Female', 'African American', 'Low-fat', 22.10, 30000, 'Vascular', 'Master', 'Single', 'Rivastigmine', 'New York');
 
-INSERT INTO state_insurance (State_name, Insurance_company_name) VALUES
-('California', 'BlueCross'),
-('Texas', 'Aetna'),
-('New York', 'UnitedHealth');
+INSERT INTO state_insurance (State_name, Insurance_company_name,Insurance_plan) VALUES
+('California', 'BlueCross','Basic'),
+('Texas', 'Aetna','Premium'),
+('New York', 'UnitedHealth','Standard');
 
 INSERT INTO treatments_available_in_states (Therapy, State_name) VALUES
 ('Donezepil', 'California'),
@@ -39,9 +72,9 @@ INSERT INTO treatments_available_in_states (Therapy, State_name) VALUES
 ('Rivastigmine', 'New York');
 
 INSERT INTO Patient_treatment (drug_name, patient_ID, start_date, end_date, outcome) VALUES
-('Donezepil', 'PAT000000001', '2024-01-10', '2024-06-10', 'Improved'),
-('Memantine', 'PAT000000002', '2024-02-15', NULL, 'Ongoing'),
-('Rivastigmine', 'PAT000000003', '2023-11-01', '2024-05-01', 'Stable');
+('Donezepil', 1, '2024-01-10', '2024-06-10', 'Improved'),
+('Memantine', 3, '2024-02-15', NULL, 'Ongoing'),
+('Rivastigmine', 2, '2023-11-01', '2024-05-01', 'Stable');
 
 INSERT INTO GP_insurance (GP_ID, Insurance_plan, GP_insurance_coverage) VALUES
 ('GP001', 'Basic', 80.00),
@@ -49,9 +82,9 @@ INSERT INTO GP_insurance (GP_ID, Insurance_plan, GP_insurance_coverage) VALUES
 ('GP003', 'Standard', 75.00);
 
 INSERT INTO patients_treated_at_gp (Patient_ID, GP_name) VALUES
-('PAT000000001', 'Dr. Smith'),
-('PAT000000002', 'Dr. Johnson'),
-('PAT000000003', 'Dr. Lee');
+(1, 'Dr. Smith'),
+(2, 'Dr. Johnson'),
+(3, 'Dr. Lee');
 
 INSERT INTO GP_treatment (GP_ID, Drug_name) VALUES
 ('GP001', 'Donezepil'),
@@ -59,14 +92,14 @@ INSERT INTO GP_treatment (GP_ID, Drug_name) VALUES
 ('GP003', 'Rivastigmine');
 
 INSERT INTO individual_insurance_plan (Patient_ID, Insurance_company_name, Insurance_plan) VALUES
-('PAT000000001', 'BlueCross', 'Basic'),
-('PAT000000002', 'Aetna', 'Premium'),
-('PAT000000003', 'UnitedHealth', 'Standard');
+(1, 'BlueCross', 'Basic'),
+(2, 'Aetna', 'Premium'),
+(3, 'UnitedHealth', 'Standard');
 
-INSERT INTO patient_Comorbidity (Patient_ID, Comorbidity) VALUES
-('PAT000000001', 'Hypertension'),
-('PAT000000002', 'Diabetes'),
-('PAT000000003', 'Depression');
+INSERT INTO patient_Comorbidity (Patient_ID, `Disease_name`) VALUES
+(1, 'Hypertension'),
+(2, 'Diabetes'),
+(3, 'Depression');
 
 INSERT INTO insurance_therapy_coverage (Drug_name, Cost, insurance_therapy_coverage) VALUES
 ('Donezepil', 120.50, 70.00),

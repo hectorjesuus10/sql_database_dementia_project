@@ -88,12 +88,15 @@ CREATE TABLE state_insurance (
 
 
 CREATE TABLE treatments_available_in_states (
-    Treatment_id INT NOT NULL,
+    drug_name VARCHAR(50),
     State_name VARCHAR(50) NOT NULL,
-    PRIMARY KEY (Treatment_id, State_name),
-    FOREIGN KEY (Treatment_id) REFERENCES Treatment(Treatment_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (drug_name, State_name),
+    FOREIGN KEY (drug_name) REFERENCES Treatment(drug_name) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (State_name) REFERENCES State(State_name) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+-- change treatment ID with drug name because it was more appropriate to the real data found
+
 CREATE TABLE Patient_treatment(
     patient_treatment_id INT AUTO_INCREMENT PRIMARY KEY,
     drug_name VARCHAR(50),

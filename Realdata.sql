@@ -70,7 +70,7 @@ INSERT INTO State (State_name, Climate) VALUES
 -- treatments_available_in_states table (using drug_name)
 
 -- We will use IGNORE as a keyword, because we have the composite key (treatment id, state name),
--- So if any duplicate happen from the original database found SQL will ignore them
+-- Given that our source dataset has duplicates ignore simply ignores them
 
 
 -- Donanemab

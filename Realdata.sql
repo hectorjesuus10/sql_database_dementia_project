@@ -12,6 +12,7 @@ INSERT INTO Treatment (drug_name, cost, number_of_people_treated) VALUES
 ('Suvorexant', 476.16, 77098);
 
 
+
 -- State
 
 INSERT INTO State (State_name, Climate) VALUES
@@ -67,78 +68,101 @@ INSERT INTO State (State_name, Climate) VALUES
 ('Wyoming', 'Highland');
 
 
--- treatments_available_in_states table (using drug_name)
-
--- We will use IGNORE as a keyword, because we have the composite key (treatment id, state name),
--- Given that our source dataset has duplicates ignore simply ignores them
+-- GP -----------------
 
 
--- Donanemab
-INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
-('Donanemab', 'Alabama'), ('Donanemab', 'Arizona'), ('Donanemab', 'California'), ('Donanemab', 'Colorado'), 
-('Donanemab', 'Connecticut'), ('Donanemab', 'Florida'), ('Donanemab', 'Georgia'), ('Donanemab', 'Illinois'), 
-('Donanemab', 'Indiana'), ('Donanemab', 'Maine'), ('Donanemab', 'Michigan'), ('Donanemab', 'Minnesota'), 
-('Donanemab', 'Mississippi'), ('Donanemab', 'Missouri'), ('Donanemab', 'Nevada'), ('Donanemab', 'New York'), 
-('Donanemab', 'North Carolina'), ('Donanemab', 'Ohio'), ('Donanemab', 'Oklahoma');
+INSERT INTO GP (GP_ID, Price, State, Medical_practise_name, GP_name) VALUES
+    ('GP051', NULL, 'Ohio', '.Drs. Sass, Friedman & Assoc.', 'Dr. Michelle Vrenko'),
+    ('GP052', NULL, 'Texas', '.Sunstar Geriatrics Healthcare Pa', 'Dr. Maryann Choi, M.D.'),
+    ('GP053', NULL, 'Kentucky', '1 Care Partners Ky Llc', 'Dr. Gideon Leiser'),
+    ('GP054', NULL, 'California', '1 Family Clinic Inc', 'Dr. Maneesh Singhal, MD'),
+    ('GP055', NULL, 'Texas', '1800Telemedcom Inc', 'Dr. Maria Bibbs'),
+    ('GP056', NULL, 'Maryland', '3S Health Llc', 'Dr. Daniel Stokar, MD'),
+    ('GP057', NULL, 'Washington', '6M Geriatrics & Hospital Medicine', 'Dr. Sikirat Tinubu-Karch, MD'),
+    ('GP058', NULL, 'Ohio', 'A & S Khandelwal Md Inc', 'Dr. Anand Khandelwal, M.D.'),
+    ('GP059', NULL, 'Nevada', 'A Better Way Behavioral Services Inc', 'Dr. Baron Mendiola'),
+    ('GP060', NULL, 'Texas', 'A Ray Lewis Do Pa', 'Dr. Adolphus Lewis, DO'),
+    ('GP061', NULL, 'Missouri', 'A T Still University Health Science', 'Dr. Monnie Harrison, CPA'),
+    ('GP062', NULL, 'Arizona', 'A. Clark Ruttinger D O Pllc', 'Dr. Albert Ruttinger, D.O.'),
+    ('GP063', NULL, 'New Jersey', 'Aalmai Services Inc', 'Dr. Sajida Mokhashi, MD'),
+    ('GP064', NULL, 'Michigan', 'Abbas Mohammed Sharif Md Llc', 'Dr. Abbas Sharif, md'),
+    ('GP065', NULL, 'California', 'Abbasi Medical Corporation', 'Dr. Adil Abbasi, M.D.'),
+    ('GP066', NULL, 'Missouri', 'Abbott And Associates, Inc.', 'Dr. David Abbott, M.D.'),
+    ('GP067', NULL, 'Michigan', 'Abdullah Raffee Md. Pc', 'Dr. Abdullah Raffee, M.D.'),
+    ('GP068', NULL, 'New Jersey', 'Abhijit Chatterjee Md Pc', 'Dr. Abhijit Chatterjee, MD'),
+    ('GP069', NULL, 'Alabama', 'Abide Health & Wellness Llc', 'Dr. Juanita Heersink, MD'),
+    ('GP070', NULL, 'Pennsylvania', 'Abington Health Group, Llc', 'Dr. Allison Ann Lyavdansky, AGNP-C, PMHNP-BC'),
+    ('GP071', NULL, 'Pennsylvania', 'Abington Memorial Hospital', 'Dr. Michael Walsh'),
+    ('GP072', NULL, 'Pennsylvania', 'Abramson Center For Jewish Life Medical Group', 'Dr. Mark Wasserman'),
+    ('GP073', NULL, 'Illinois', 'Absolute Medical Group, Inc', 'Dr. Ramone Kullum, MPA'),
+    ('GP074', NULL, 'California', 'Absoodmedgroup Inc', 'Dr. Mary Absood, MD'),
+    ('GP075', NULL, 'Texas', 'Abss Services Llc', 'Dr. Narmeen Syed, MD'),
+    ('GP076', NULL, 'Michigan', 'Abul Shamsuddin, Md, Pc', 'Dr. Abul Shamsuddin, MD'),
+    ('GP077', NULL, 'Florida', 'Ac Medical Associates I, Inc.', 'Dr. Aliuska Carmenate, MD'),
+    ('GP078', NULL, 'Louisiana', 'Acadiana Long Term Care Llc', 'Dr. Geoffrey Mire, MD'),
+    ('GP079', NULL, 'Florida', 'Access Health Care Physicians Llc', 'Dr. Pariksith Singh, M.D.'),
+    ('GP080', NULL, 'Florida', 'Access Healthcare Llc', 'Dr. Pariksith Singh, MD'),
+    ('GP081', NULL, 'Michigan', 'Access Housecall Llc', 'Dr. Mark Cataldo, RN'),
+    ('GP082', NULL, 'Florida', 'Access Medical Group Of Lauderdale Lakes, Llc', 'Dr. Rayny Ramirez'),
+    ('GP083', NULL, 'Michigan', 'Access Medical Management, Inc.', 'Dr. Michael Yancon'),
+    ('GP084', NULL, 'Texas', 'Accommodating Medical Providers Of Texas, Pllc', 'Dr. Mechiell Tucker, PA'),
+    ('GP085', NULL, 'Maryland', 'Accompany Medical Group Of Colorado, P.C.', 'Dr. Ellen Weinstein'),
+    ('GP086', NULL, 'Arizona', 'Accredited Family Healthcare, P.C.', 'Dr. Cynthia Barry, D.O.'),
+    ('GP087', NULL, 'Texas', 'Accura Health Dfw 1 Llc', 'Dr. Allyson Stewart'),
+    ('GP088', NULL, 'Florida', 'Accura Health Fl 1 Llc', 'Dr. Mufaddal Bootwala'),
+    ('GP089', NULL, 'Indiana', 'Aceso Visiting Physicians And Geriatric Care Inc.', 'Dr. Kristine Teodori, DO'),
+    ('GP090', NULL, 'Massachusetts', 'Aco Health Solutions Pcp Llc', 'Dr. Irving Restituyo, MD'),
+    ('GP091', NULL, 'Massachusetts', 'Aco Health Solutions, Llc', 'Dr. Joemayri Colon'),
+    ('GP092', NULL, 'Indiana', 'Act 3 Care Llc', 'Dr. Shannon Pace'),
+    ('GP093', NULL, 'New York', 'Active Aging Medical P.C.', 'Dr. Alexander Kolessa, MD'),
+    ('GP094', NULL, 'New York', 'Acuma Llc', 'Dr. Eszter Boksay, MD'),
+    ('GP095', NULL, 'Virginia', 'Ad Senior Medical Llc', 'Dr. Debra Ramsey, NP'),
+    ('GP096', NULL, 'Florida', 'Adam C Perry Md Pa', 'Dr. Adam Perry, MD'),
+    ('GP097', NULL, 'New York', 'Adam D Cohen Md Pc', 'Dr. Adam Cohen, MD'),
+    ('GP098', NULL, 'Massachusetts', 'Adams Medical Associates', 'Dr. Charles Rippberger, M.D.'),
+    ('GP099', NULL, 'Ohio', 'Adena Health System', 'Dr. Robert Rosenberger'),
+    ('GP100', NULL, 'Texas', 'Adnan Mallick Md Pa', 'Dr. Adnan Mallick, MD'),
+    ('GP101', NULL, 'Michigan', 'Adrian Sheremeta Md Pc', 'Dr. Adrian Sheremeta, M.D.'),
+    ('GP102', NULL, 'Pennsylvania', 'Adrienne M Young Md Llc', 'Dr. Adrienne Young, M.D.'),
+    ('GP103', NULL, 'Florida', 'Adult & Geriatric Center Of South Florida, Llc', 'Dr. Mario Galdames, MD'),
+    ('GP104', NULL, 'New York', 'Adult And Geriatric Medical Care Pc', 'Dr. Diana Levina, MD'),
+    ('GP105', NULL, 'Massachusetts', 'Adult And Geriatric Medicine Partners, L.L.C.', 'Dr. Victoria Peters, D.O.'),
+    ('GP106', NULL, 'New Jersey', 'Adult And Geriatric Medicine Pc', 'Dr. Sonia Rijhsinghani, M.D.'),
+    ('GP107', NULL, 'Arizona', 'Adult And Geriatric Services Of Arizona', 'Dr. Bari Orozco, NP'),
+    ('GP108', NULL, 'New York', 'Adult Comprehensive Universal Medical Associates Llc', 'Dr. Estzer Boksay, MD'),
+    ('GP109', NULL, 'Pennsylvania', 'Adult Geriatric Osteopathic Medical Care, Llc', 'Dr. Amanda Kulchinsky'),
+    ('GP110', NULL, 'Ohio', 'Adult Geriatrics Of Wooster, Inc.', 'Dr. Kimberly Williams'),
+    ('GP111', NULL, 'New York', 'Adult Medical Care, P.C.', 'Dr. Richard Hoffman, MD'),
+    ('GP112', NULL, 'Massachusetts', 'Adult Primary Care Pllc', 'Dr. Vasant Patel, MD'),
+    ('GP113', NULL, 'Virginia', 'Advance Care Partners', 'Dr. Niraj Patel'),
+    ('GP114', NULL, 'Michigan', 'Advance Homecare Systems', 'Dr. Theresa Berger'),
+    ('GP115', NULL, 'Texas', 'Advance Medical Clinic Inc', 'Dr. Tania Garcia'),
+    ('GP116', NULL, 'Connecticut', 'Advanced Care Associates, Llc', 'Dr. Brenda De Gray'),
+    ('GP117', NULL, 'Indiana', 'Advanced Care Connections', 'Dr. Greg Mann'),
+    ('GP118', NULL, 'Ohio', 'Advanced Family Medical Center Llc', 'Dr. Peter Tsai, MD'),
+    ('GP119', NULL, 'Florida', 'Advanced Geriatric & Internal Medicine, P.L.', 'Dr. Sol Velezcortes, MD'),
+    ('GP120', NULL, 'California', 'Advanced Geriatric Care And Family Practice Associates', 'Dr. Roger Tran, M.D.'),
+    ('GP121', NULL, 'Florida', 'Advanced Geriatrics & Primary Care Llc', 'Dr. Megumi Maguchi Aldrete, MD'),
+    ('GP122', NULL, 'New Jersey', 'Advanced Geriatrics Inc', 'Dr. Nagwa Hafez, MD'),
+    ('GP123', NULL, 'New York', 'Advanced Health Improvement Med, P.C.', 'Dr. Regina Sotnik, M.D.'),
+    ('GP124', NULL, 'Indiana', 'Advanced Healthcare Associates Llp', 'Dr. Kairee Hargett'),
+    ('GP125', NULL, 'New York', 'Advanced Internal Medicine Group Pc', 'Dr. Leon Schwechter, DO'),
+    ('GP126', NULL, 'Maryland', 'Advanced Medical Care Llc', 'Dr. Piyush Patel, MD'),
+    ('GP127', NULL, 'Michigan', 'Advanced Medical Haggerty Partners Pa', 'Dr. Thomas Prose, MD'),
+    ('GP128', NULL, 'Indiana', 'Advanced Medical Strategies Llc', 'Dr. Sharon Kookich'),
+    ('GP129', NULL, 'Florida', 'Advanced Primary Care And Geriatrics Pa', 'Dr. Ramanababu Paladugu, M.D.'),
+    ('GP130', NULL, 'Missouri', 'Advanced Primary Care Llc', 'Dr. Cheri Venable, LPN'),
+    ('GP131', NULL, 'Illinois', 'Advanced Wound Care Associates Pllc', 'Dr. Kiev Huynh, APRN-FPA'),
+    ('GP132', NULL, 'California', 'Advanced Wound Care Center', 'Dr. Philip Zhou, MD'),
+    ('GP133', NULL, 'New York', 'Advanced Wound Care Medical Practice, Pc', 'Dr. Marie Jacques, MD'),
+    ('GP134', NULL, 'Michigan', 'Advantage Health Physicians Pc', 'Dr. David Blair, MD'),
+    ('GP135', NULL, 'Illinois', 'Advantage Healthcare Specialists, Llc', 'Dr. Leo Kanev, MD'),
+    ('GP136', NULL, 'Florida', 'Advantage Medical Group Llc', 'Dr. Arcilio Alvarado'),
+    ('GP137', NULL, 'Florida', 'Adventhealth Senior Care Inc', 'Dr. Bryan Stiltz'),
+    ('GP138', NULL, 'Illinois', 'Adventist Health Partners,Inc', 'Dr. Ruby Mann');
 
--- Lecanemab
-INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
-('Lecanemab', 'Arizona'), ('Lecanemab', 'Arkansas'), ('Lecanemab', 'Florida'), ('Lecanemab', 'Georgia'), 
-('Lecanemab', 'Maine'), ('Lecanemab', 'Michigan'), ('Lecanemab', 'Minnesota'), ('Lecanemab', 'New York'), 
-('Lecanemab', 'North Carolina');
 
--- Benzgalantamine (No states available)
-
--- Donepezil
-INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
-('Donepezil', 'Arizona'), ('Donepezil', 'Georgia'), ('Donepezil', 'Michigan'), ('Donepezil', 'Missouri'), 
-('Donepezil', 'Nevada'), ('Donepezil', 'New York'), ('Donepezil', 'North Carolina'), ('Donepezil', 'Ohio');
-
--- Galantamine (No states available)
-
--- Rivastigmine
-INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
-('Rivastigmine', 'Arkansas'), ('Rivastigmine', 'Florida'), ('Rivastigmine', 'Louisiana'), ('Rivastigmine', 'Maine'), 
-('Rivastigmine', 'Michigan'), ('Rivastigmine', 'Minnesota'), ('Rivastigmine', 'New Hampshire'), ('Rivastigmine', 'New York'), 
-('Rivastigmine', 'North Carolina');
-
--- Memantine
-INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
-('Memantine', 'Arizona'), ('Memantine', 'Georgia'), ('Memantine', 'Michigan'), ('Memantine', 'Missouri'), 
-('Memantine', 'Nevada'), ('Memantine', 'New York'), ('Memantine', 'North Carolina');
-
--- Namzaric
-INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
-('Namzaric', 'Arizona'), ('Namzaric', 'Georgia'), ('Namzaric', 'Michigan'), ('Namzaric', 'Missouri'), 
-('Namzaric', 'Nevada'), ('Namzaric', 'New York'), ('Namzaric', 'North Carolina');
-
--- Brexpiprazole
-INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
-('Brexpiprazole', 'Alaska'), ('Brexpiprazole', 'Arizona'), ('Brexpiprazole', 'Arkansas'), ('Brexpiprazole', 'Florida'), 
-('Brexpiprazole', 'Georgia'), ('Brexpiprazole', 'Idaho'), ('Brexpiprazole', 'Louisiana'), ('Brexpiprazole', 'Maine'), 
-('Brexpiprazole', 'Michigan'), ('Brexpiprazole', 'Minnesota'), ('Brexpiprazole', 'Missouri'), ('Brexpiprazole', 'Nevada'), 
-('Brexpiprazole', 'New Hampshire'), ('Brexpiprazole', 'New York'), ('Brexpiprazole', 'North Carolina');
-
--- Auvelity
-INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
-('Auvelity', 'Alabama'), ('Auvelity', 'Alaska'), ('Auvelity', 'Arizona'), ('Auvelity', 'Arkansas'), 
-('Auvelity', 'California'), ('Auvelity', 'Colorado'), ('Auvelity', 'Connecticut'), ('Auvelity', 'Delaware'), 
-('Auvelity', 'Florida'), ('Auvelity', 'Georgia'), ('Auvelity', 'Idaho'), ('Auvelity', 'Illinois'), 
-('Auvelity', 'Indiana'), ('Auvelity', 'Iowa'), ('Auvelity', 'Kansas'), ('Auvelity', 'Kentucky'), 
-('Auvelity', 'Louisiana'), ('Auvelity', 'Maine'), ('Auvelity', 'Michigan'), ('Auvelity', 'Minnesota'), 
-('Auvelity', 'Mississippi'), ('Auvelity', 'Missouri'), ('Auvelity', 'Nebraska'), ('Auvelity', 'Nevada'), 
-('Auvelity', 'New Hampshire'), ('Auvelity', 'New Jersey'), ('Auvelity', 'New York'), 
-('Auvelity', 'North Carolina'), ('Auvelity', 'Ohio'), ('Auvelity', 'Oklahoma');
-
--- Suvorexant
-INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
-('Suvorexant', 'Alaska'), ('Suvorexant', 'Arizona'), ('Suvorexant', 'Arkansas'), ('Suvorexant', 'Florida'), 
-('Suvorexant', 'Georgia'), ('Suvorexant', 'Idaho'), ('Suvorexant', 'Louisiana'), ('Suvorexant', 'Maine'), 
-('Suvorexant', 'Michigan'), ('Suvorexant', 'Minnesota'), ('Suvorexant', 'Missouri'), ('Suvorexant', 'Nevada'), 
-('Suvorexant', 'New Hampshire'), ('Suvorexant', 'New York'), ('Suvorexant', 'North Carolina');
-
-
--- patient info comorbidity
+-- patient --------------------------------------
 INSERT INTO Patient
     (Patient_ID, min_age, max_age, Sex)
 VALUES
@@ -294,4 +318,75 @@ VALUES
     (71, 'Essential hypertension');
 
 
+
+-------------------------------------------------
+-- treatments_available_in_states table (using drug_name)
+
+-- We will use IGNORE as a keyword, because we have the composite key (treatment id, state name),
+-- Given that our source dataset has duplicates ignore simply ignores them
+
+
+-- Donanemab
+INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
+('Donanemab', 'Alabama'), ('Donanemab', 'Arizona'), ('Donanemab', 'California'), ('Donanemab', 'Colorado'), 
+('Donanemab', 'Connecticut'), ('Donanemab', 'Florida'), ('Donanemab', 'Georgia'), ('Donanemab', 'Illinois'), 
+('Donanemab', 'Indiana'), ('Donanemab', 'Maine'), ('Donanemab', 'Michigan'), ('Donanemab', 'Minnesota'), 
+('Donanemab', 'Mississippi'), ('Donanemab', 'Missouri'), ('Donanemab', 'Nevada'), ('Donanemab', 'New York'), 
+('Donanemab', 'North Carolina'), ('Donanemab', 'Ohio'), ('Donanemab', 'Oklahoma');
+
+-- Lecanemab
+INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
+('Lecanemab', 'Arizona'), ('Lecanemab', 'Arkansas'), ('Lecanemab', 'Florida'), ('Lecanemab', 'Georgia'), 
+('Lecanemab', 'Maine'), ('Lecanemab', 'Michigan'), ('Lecanemab', 'Minnesota'), ('Lecanemab', 'New York'), 
+('Lecanemab', 'North Carolina');
+
+-- Benzgalantamine (No states available)
+
+-- Donepezil
+INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
+('Donepezil', 'Arizona'), ('Donepezil', 'Georgia'), ('Donepezil', 'Michigan'), ('Donepezil', 'Missouri'), 
+('Donepezil', 'Nevada'), ('Donepezil', 'New York'), ('Donepezil', 'North Carolina'), ('Donepezil', 'Ohio');
+
+-- Galantamine (No states available)
+
+-- Rivastigmine
+INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
+('Rivastigmine', 'Arkansas'), ('Rivastigmine', 'Florida'), ('Rivastigmine', 'Louisiana'), ('Rivastigmine', 'Maine'), 
+('Rivastigmine', 'Michigan'), ('Rivastigmine', 'Minnesota'), ('Rivastigmine', 'New Hampshire'), ('Rivastigmine', 'New York'), 
+('Rivastigmine', 'North Carolina');
+
+-- Memantine
+INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
+('Memantine', 'Arizona'), ('Memantine', 'Georgia'), ('Memantine', 'Michigan'), ('Memantine', 'Missouri'), 
+('Memantine', 'Nevada'), ('Memantine', 'New York'), ('Memantine', 'North Carolina');
+
+-- Namzaric
+INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
+('Namzaric', 'Arizona'), ('Namzaric', 'Georgia'), ('Namzaric', 'Michigan'), ('Namzaric', 'Missouri'), 
+('Namzaric', 'Nevada'), ('Namzaric', 'New York'), ('Namzaric', 'North Carolina');
+
+-- Brexpiprazole
+INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
+('Brexpiprazole', 'Alaska'), ('Brexpiprazole', 'Arizona'), ('Brexpiprazole', 'Arkansas'), ('Brexpiprazole', 'Florida'), 
+('Brexpiprazole', 'Georgia'), ('Brexpiprazole', 'Idaho'), ('Brexpiprazole', 'Louisiana'), ('Brexpiprazole', 'Maine'), 
+('Brexpiprazole', 'Michigan'), ('Brexpiprazole', 'Minnesota'), ('Brexpiprazole', 'Missouri'), ('Brexpiprazole', 'Nevada'), 
+('Brexpiprazole', 'New Hampshire'), ('Brexpiprazole', 'New York'), ('Brexpiprazole', 'North Carolina');
+
+-- Auvelity
+INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
+('Auvelity', 'Alabama'), ('Auvelity', 'Alaska'), ('Auvelity', 'Arizona'), ('Auvelity', 'Arkansas'), 
+('Auvelity', 'California'), ('Auvelity', 'Colorado'), ('Auvelity', 'Connecticut'), ('Auvelity', 'Delaware'), 
+('Auvelity', 'Florida'), ('Auvelity', 'Georgia'), ('Auvelity', 'Idaho'), ('Auvelity', 'Illinois'), 
+('Auvelity', 'Indiana'), ('Auvelity', 'Iowa'), ('Auvelity', 'Kansas'), ('Auvelity', 'Kentucky'), 
+('Auvelity', 'Louisiana'), ('Auvelity', 'Maine'), ('Auvelity', 'Michigan'), ('Auvelity', 'Minnesota'), 
+('Auvelity', 'Mississippi'), ('Auvelity', 'Missouri'), ('Auvelity', 'Nebraska'), ('Auvelity', 'Nevada'), 
+('Auvelity', 'New Hampshire'), ('Auvelity', 'New Jersey'), ('Auvelity', 'New York'), 
+('Auvelity', 'North Carolina'), ('Auvelity', 'Ohio'), ('Auvelity', 'Oklahoma');
+
+-- Suvorexant
+INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES 
+('Suvorexant', 'Alaska'), ('Suvorexant', 'Arizona'), ('Suvorexant', 'Arkansas'), ('Suvorexant', 'Florida'), 
+('Suvorexant', 'Georgia'), ('Suvorexant', 'Idaho'), ('Suvorexant', 'Louisiana'), ('Suvorexant', 'Maine'), 
+('Suvorexant', 'Michigan'), ('Suvorexant', 'Minnesota'), ('Suvorexant', 'Missouri'), ('Suvorexant', 'Nevada'), 
+('Suvorexant', 'New Hampshire'), ('Suvorexant', 'New York'), ('Suvorexant', 'North Carolina');
 

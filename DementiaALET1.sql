@@ -64,13 +64,10 @@ CREATE TABLE Patient(
     Marital_status ENUM ('Single','Married','Divorced', 'In a relationship','Widowed','Other'),
     Treatment VARCHAR(50) DEFAULT('No treatment'),
     State VARCHAR(50) NOT NULL,
-    FOREIGN KEY (State) REFERENCES State(State_name)  ON DELETE CASCADE ON UPDATE CASCADE
-    CHECK (BMI BETWEEN 0 AND 50)
-    CHECK (AGE>0)
+    FOREIGN KEY (State) REFERENCES State(State_name)  ON DELETE CASCADE ON UPDATE CASCADE,
+    CHECK (BMI BETWEEN 0 AND 50),
+    CHECK (AGE>0),
     CHECK (Income >= 0)
-    
-
-
 );
 
 CREATE TABLE state_insurance (

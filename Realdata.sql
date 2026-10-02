@@ -67,7 +67,8 @@ INSERT INTO State (State_name, Climate) VALUES
 ('Wisconsin', 'Humid Continental'),
 ('Wyoming', 'Highland');
 
--- GP
+
+-- GP -----------------
 
 
 INSERT INTO GP (GP_ID, Price, State, Medical_practise_name, GP_name) VALUES
@@ -388,4 +389,4 @@ INSERT IGNORE INTO treatments_available_in_states (drug_name, State_name) VALUES
 ('Suvorexant', 'Georgia'), ('Suvorexant', 'Idaho'), ('Suvorexant', 'Louisiana'), ('Suvorexant', 'Maine'), 
 ('Suvorexant', 'Michigan'), ('Suvorexant', 'Minnesota'), ('Suvorexant', 'Missouri'), ('Suvorexant', 'Nevada'), 
 ('Suvorexant', 'New Hampshire'), ('Suvorexant', 'New York'), ('Suvorexant', 'North Carolina');
->>>>>>> 56c86e20194c87e7c6737f27776d66e089faac30
+

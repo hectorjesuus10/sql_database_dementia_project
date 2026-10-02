@@ -22,6 +22,7 @@ INSERT INTO State (State_name, Climate) VALUES
 ('Colorado', 'Highland'),
 ('Connecticut', 'Humid Continental'),
 ('Delaware', 'Humid Subtropical'),
+('District of Columbia','Humid Subtropical')
 ('Florida', 'Tropical'),
 ('Georgia', 'Humid Subtropical'),
 ('Hawaii', 'Tropical'),

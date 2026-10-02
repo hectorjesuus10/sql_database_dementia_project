@@ -24,11 +24,14 @@ WHERE Patient.Type_of_dementia = 'Alzheimer'
 
 
 
+-- Query 2------
+SELECT s.State_name, y.Stats_year, y.Number_of_inhabitants, y.GDP_per_person
+FROM State s
+JOIN State_year_stats y ON y.State_name = s.State_name
+WHERE y.Stats_year = 2024
+  AND y.Number_of_inhabitants >= 2000000
+  AND y.GDP_per_person >= 70000.00;
 
--- Query 2-------
-SELECT *
-FROM `State`
-WHERE `Number_of_inhabitants` >= 2000000 AND `GDP_per_person` >= 70000.00; 
 
 -- Query 3-------
 SELECT DISTINCT `Patient_ID`

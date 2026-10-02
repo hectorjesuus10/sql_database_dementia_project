@@ -31,23 +31,27 @@ CREATE TABLE Insurance (
     Insurance_company_name VARCHAR(50),
     Insurance_plan VARCHAR(50), 
     Number_of_people_covered INT,
-    PRIMARY KEY(Insurance_company_name,Insurance_plan)
+    PRIMARY KEY(Insurance_company_name,Insurance_plan),
+    CHECK (Number_of_people_covered >= 0)
 );
 
 CREATE TABLE Treatment (
     Treatment_id INT AUTO_INCREMENT PRIMARY KEY,
     drug_name VARCHAR(50) UNIQUE,
-    cost DECIMAL(10,2),
-    number_of_people_treated INT
+    cost DECIMAL(10,2) UNIQUE,
+    number_of_people_treated INT,
+    CHECK (cost >= 0),
+    CHECK (number_of_people_treated >= 0)
 );
 
 CREATE TABLE GP (
     GP_ID VARCHAR(10) PRIMARY KEY, 
     Price DECIMAL(10,2),
     State VARCHAR(50),
-    FOREIGN KEY (State) REFERENCES State(State_name),
     Medical_practise_name VARCHAR(20),
-    GP_name VARCHAR(100) UNIQUE 
+    GP_name VARCHAR(100) UNIQUE, 
+    FOREIGN KEY (State) REFERENCES State(State_name),
+    CHECK (Price >= 0)
 
 );
 
@@ -78,7 +82,7 @@ CREATE TABLE state_insurance (
     FOREIGN KEY (State_name) REFERENCES State(State_name)
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (Insurance_company_name, Insurance_plan) 
-        REFERENCES Insurance(Insurance_company_name, Insurance_plan) --in here it looks for the specific combination of insurance company name with that plan 
+        REFERENCES Insurance(Insurance_company_name, Insurance_plan) 
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -148,14 +152,14 @@ CREATE TABLE patient_comorbidity (
 );
 
 
-CREATE TABLE insurance_therapy_coverage(
+CREATE TABLE insurance_therapy_coverage (
     Drug_name VARCHAR(50),
     cost DECIMAL(10,2),
+    insurance_therapy_coverage_percentage FLOAT(3,2),
     FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name),
     FOREIGN KEY (cost) REFERENCES Treatment(cost)  ON DELETE CASCADE ON UPDATE CASCADE,
-    PRIMARY KEY (Drug_name),
-    insurance_therapy_coverage_percentage FLOAT(3,2)
-
+    PRIMARY KEY (Drug_name)
+    
 );
 
 

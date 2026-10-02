@@ -61,10 +61,14 @@ CREATE TABLE Patient(
     Income FLOAT,
     Type_of_dementia VARCHAR(40) NOT NULL ,
     Level_of_highest_Education VARCHAR(40) NOT NULL,
-    Marital_status ENUM ('Single','Married','Divorced', 'In a relationship','Other'),
+    Marital_status ENUM ('Single','Married','Divorced', 'In a relationship','Widowed','Other'),
     Treatment VARCHAR(50) DEFAULT('No treatment'),
     State VARCHAR(50) NOT NULL,
     FOREIGN KEY (State) REFERENCES State(State_name)  ON DELETE CASCADE ON UPDATE CASCADE
+    CHECK (BMI BETWEEN 0 AND 50)
+    CHECK (AGE>0)
+    CHECK (Income >= 0)
+    
 
 
 );
@@ -77,9 +81,10 @@ CREATE TABLE state_insurance (
     FOREIGN KEY (State_name) REFERENCES State(State_name)
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (Insurance_company_name, Insurance_plan) 
-        REFERENCES Insurance(Insurance_company_name, Insurance_plan)
+        REFERENCES Insurance(Insurance_company_name, Insurance_plan) --in here it looks for the specific combination of insurance company name with that plan 
         ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 CREATE TABLE treatments_available_in_states (
     Treatment_id INT NOT NULL,

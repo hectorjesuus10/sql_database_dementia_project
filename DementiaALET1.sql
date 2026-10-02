@@ -8,14 +8,14 @@ CREATE TABLE State (
 );
 
 CREATE TABLE State_year_stats (
-    State_name VARCHAR(50) NOT NULL,
-    Stats_year SMALLINT NOT NULL,
-    Number_of_inhabitants BIGINT NOT NULL,
-    Number_of_hospitals INT NOT NULL,
-    Male_to_female_ratio DECIMAL(4,2) NOT NULL,
-    GDP_per_person DECIMAL(10,2) NOT NULL,        -- USD per year
-    Healthcare_funding DECIMAL(15,2) NOT NULL,
-    avg_dementia_rate DECIMAL(5,2) NOT NULL,      -- percent
+    State_name VARCHAR(50),
+    Stats_year SMALLINT,
+    Number_of_inhabitants BIGINT,
+    Number_of_hospitals INT,
+    Male_to_female_ratio DECIMAL(4,2),
+    GDP_per_person DECIMAL(10,2),        -- USD per year
+    Healthcare_funding DECIMAL(15,2),
+    avg_dementia_rate DECIMAL(5,2),      -- percent
     PRIMARY KEY (State_name, Stats_year),
     FOREIGN KEY (State_name) REFERENCES State(State_name) ON DELETE CASCADE ON UPDATE CASCADE,
     CHECK (Stats_year BETWEEN 1900 AND 2100),
@@ -167,7 +167,7 @@ CREATE TABLE insurance_therapy_coverage (
     PRIMARY KEY (Drug_name)
     
 );
-
+ 
 
 
 

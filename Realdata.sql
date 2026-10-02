@@ -12,6 +12,61 @@ INSERT INTO Treatment (drug_name, cost, number_of_people_treated) VALUES
 ('Suvorexant', 476.16, 77098);
 
 
+-- State
+
+INSERT INTO State (State_name, Climate) VALUES
+('Alabama', 'Humid Subtropical'),
+('Alaska', 'Subarctic'),
+('Arizona', 'Arid'),
+('Arkansas', 'Humid Subtropical'),
+('California', 'Mediterranean'),
+('Colorado', 'Highland'),
+('Connecticut', 'Humid Continental'),
+('Delaware', 'Humid Subtropical'),
+('Florida', 'Tropical'),
+('Georgia', 'Humid Subtropical'),
+('Hawaii', 'Tropical'),
+('Idaho', 'Highland'),
+('Illinois', 'Humid Continental'),
+('Indiana', 'Humid Continental'),
+('Iowa', 'Humid Continental'),
+('Kansas', 'Humid Continental'),
+('Kentucky', 'Humid Subtropical'),
+('Louisiana', 'Humid Subtropical'),
+('Maine', 'Humid Continental'),
+('Maryland', 'Humid Subtropical'),
+('Massachusetts', 'Humid Continental'),
+('Michigan', 'Humid Continental'),
+('Minnesota', 'Humid Continental'),
+('Mississippi', 'Humid Subtropical'),
+('Missouri', 'Humid Continental'),
+('Montana', 'Highland'),
+('Nebraska', 'Humid Continental'),
+('Nevada', 'Arid'),
+('New Hampshire', 'Humid Continental'),
+('New Jersey', 'Humid Subtropical'),
+('New Mexico', 'Arid'),
+('New York', 'Humid Continental'),
+('North Carolina', 'Humid Subtropical'),
+('North Dakota', 'Humid Continental'),
+('Ohio', 'Humid Continental'),
+('Oklahoma', 'Humid Subtropical'),
+('Oregon', 'Mediterranean'),
+('Pennsylvania', 'Humid Continental'),
+('Rhode Island', 'Humid Continental'),
+('South Carolina', 'Humid Subtropical'),
+('South Dakota', 'Humid Continental'),
+('Tennessee', 'Humid Subtropical'),
+('Texas', 'Humid Subtropical'),
+('Utah', 'Arid'),
+('Vermont', 'Humid Continental'),
+('Virginia', 'Humid Subtropical'),
+('Washington', 'Mediterranean'),
+('West Virginia', 'Humid Continental'),
+('Wisconsin', 'Humid Continental'),
+('Wyoming', 'Highland');
+
+
 -- treatments_available_in_states table (using drug_name)
 
 -- We will use IGNORE as a keyword, because we have the composite key (treatment id, state name),

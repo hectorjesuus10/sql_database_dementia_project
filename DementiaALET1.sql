@@ -133,6 +133,7 @@ CREATE TABLE GP_treatment (
     FOREIGN KEY (Treatment_id) REFERENCES Treatment(Treatment_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
 CREATE TABLE individual_insurance_plan (
     Patient_ID INT,
     Insurance_company_name VARCHAR(50),
@@ -141,7 +142,7 @@ CREATE TABLE individual_insurance_plan (
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
     FOREIGN KEY (Insurance_company_name, Insurance_plan) REFERENCES Insurance(Insurance_company_name, Insurance_plan)
 );
-
+-- ^^in here it looks for the specific combination of insurance company name with that plan
 
 CREATE TABLE patient_comorbidity (
     Patient_ID INT,

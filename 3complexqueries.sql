@@ -38,4 +38,12 @@ SELECT DISTINCT `Patient_ID`
 FROM `Patient`
 WHERE `Patient_ID` NOT IN
     (SELECT `Patient_ID` FROM patient_Comorbidity
-     WHERE `Comorbidity` = 'Diabetes'); 
+     WHERE `Disease_name` = 'Essential hypertension'); 
+
+
+
+SELECT *
+FROM patient
+
+
+DELETE TABLE patient

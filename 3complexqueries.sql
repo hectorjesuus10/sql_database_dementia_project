@@ -40,10 +40,3 @@ WHERE `Patient_ID` NOT IN
     (SELECT `Patient_ID` FROM patient_Comorbidity
      WHERE `Disease_name` = 'Essential hypertension'); 
 
-
-
-SELECT *
-FROM patient
-
-
-DELETE TABLE patient

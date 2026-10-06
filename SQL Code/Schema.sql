@@ -44,15 +44,21 @@ CREATE TABLE Treatment (
     CHECK (number_of_people_treated >= 0)
 );
 
+-- new table added for 3NF
+CREATE TABLE Medical_Practice (
+    Medical_practice_name VARCHAR(100) PRIMARY KEY,
+    State VARCHAR(50) NOT NULL,
+    FOREIGN KEY (State) REFERENCES State(State_name) 
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
 CREATE TABLE GP (
     GP_ID VARCHAR(10) PRIMARY KEY, 
     Price DECIMAL(10,2),
-    State VARCHAR(50),
-    Medical_practise_name VARCHAR(100),
+    Medical_practice_name VARCHAR(100),
     GP_name VARCHAR(100) UNIQUE, 
-    FOREIGN KEY (State) REFERENCES State(State_name),
+    FOREIGN KEY (Medical_practice_name) REFERENCES Medical_Practice(Medical_practice_name)
+        ON DELETE SET NULL ON UPDATE CASCADE,
     CHECK (Price >= 0)
-
 );
 
 
@@ -160,15 +166,16 @@ CREATE TABLE patient_comorbidity (
 
 CREATE TABLE insurance_therapy_coverage (
     Drug_name VARCHAR(50),
-    cost DECIMAL(10,2),
     insurance_therapy_coverage_percentage FLOAT(3,2),
     FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name),
-    FOREIGN KEY (cost) REFERENCES Treatment(cost)  ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (Drug_name)
     
 );
+
+-- cost was removed for normalization, it can be retrieved 
  
 
+ 
 
 
 

@@ -130,10 +130,10 @@ CREATE TABLE GP_insurance (
 );
 CREATE TABLE patients_treated_at_gp (
     Patient_ID INT NOT NULL,
-    GP_name VARCHAR(20) NOT NULL,
-    PRIMARY KEY (Patient_ID, GP_name),
+    GP_ID VARCHAR(10) NOT NULL,
+    PRIMARY KEY (Patient_ID, GP_ID),
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)  ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (GP_name) REFERENCES GP(GP_name)  ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (GP_ID) REFERENCES GP(GP_ID)  ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE GP_treatment (
@@ -159,7 +159,7 @@ CREATE TABLE patient_comorbidity (
     Patient_ID INT NOT NULL,
     Disease_name VARCHAR(70) NOT NULL,
     Comorbidity_patient_ID INT AUTO_INCREMENT PRIMARY KEY,
-    
+    UNIQUE (Patient_ID, Disease_name),
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)  ON DELETE CASCADE ON UPDATE CASCADE
 );
 

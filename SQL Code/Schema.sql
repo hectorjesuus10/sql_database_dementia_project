@@ -166,7 +166,7 @@ CREATE TABLE patient_comorbidity (
 
 CREATE TABLE insurance_therapy_coverage (
     Drug_name VARCHAR(50),
-    insurance_therapy_coverage_percentage FLOAT(3,2),
+    insurance_therapy_coverage_percentage FLOAT(5,2),
     FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name),
     PRIMARY KEY (Drug_name)
     

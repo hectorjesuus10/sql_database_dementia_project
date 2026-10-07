@@ -38,7 +38,7 @@ CREATE TABLE Insurance (
 CREATE TABLE Treatment (
     Treatment_id INT AUTO_INCREMENT PRIMARY KEY,
     drug_name VARCHAR(50) UNIQUE,
-    cost DECIMAL(10,2) UNIQUE,
+    cost DECIMAL(10,2),
     number_of_people_treated INT,
     CHECK (cost >= 0),
     CHECK (number_of_people_treated >= 0)
@@ -71,9 +71,9 @@ CREATE TABLE Patient(
     Diet VARCHAR (30) NOT NULL DEFAULT('Unknown'),
     BMI FLOAT(4,2),
     Income FLOAT,
-    Type_of_dementia VARCHAR(40) NOT NULL DEFAULT('unknown') ,
+    Type_of_dementia VARCHAR(40) NOT NULL DEFAULT('Unknown') ,
     Level_of_highest_Education VARCHAR(40) ,
-    Marital_status ENUM ('Single','Married','Divorced', 'In a relationship','Widowed','Other'),
+    Marital_status ENUM ('Single','Married','Divorced', 'In a relationship','Widowed','Other','Unknown') NOT NULL DEFAULT('Unknown'),
     State VARCHAR(50) ,
     FOREIGN KEY (State) REFERENCES State(State_name)  ON DELETE CASCADE ON UPDATE CASCADE,
     CHECK (BMI BETWEEN 0 AND 50),

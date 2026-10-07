@@ -387,44 +387,7 @@ INSERT INTO State_year_stats (State_name, Stats_year, Number_of_inhabitants, Num
 ('Delaware', 2024, 1050123, 7, NULL),
 ('Delaware', 2025, 1059952, 7, NULL);
 
--- District of Columbia
-INSERT INTO State_year_stats (State_name, Stats_year, Number_of_inhabitants, Number_of_hospitals, Male_to_female_ratio) VALUES
-('District of Columbia', 1990, 603814, NULL, NULL),
-('District of Columbia', 1991, 593239, NULL, NULL),
-('District of Columbia', 1992, 584183, NULL, NULL),
-('District of Columbia', 1993, 576358, NULL, NULL),
-('District of Columbia', 1994, 564982, NULL, NULL),
-('District of Columbia', 1995, 551273, NULL, NULL),
-('District of Columbia', 1996, 538273, NULL, NULL),
-('District of Columbia', 1997, 528752, NULL, NULL),
-('District of Columbia', 1998, 521426, NULL, NULL),
-('District of Columbia', 1999, 519000, NULL, NULL),
-('District of Columbia', 2000, 572046, 7, 0.8902),
-('District of Columbia', 2001, 574504, 7, 0.8914),
-('District of Columbia', 2002, 573158, 7, 0.8907),
-('District of Columbia', 2003, 568502, 7, 0.8912),
-('District of Columbia', 2004, 567754, 7, 0.8907),
-('District of Columbia', 2005, 567136, 7, 0.8929),
-('District of Columbia', 2006, 570681, 7, 0.8939),
-('District of Columbia', 2007, 574404, 7, 0.8960),
-('District of Columbia', 2008, 580236, 7, 0.8946),
-('District of Columbia', 2009, 592228, 7, 0.8992),
-('District of Columbia', 2010, 604718, 7, 0.8893),
-('District of Columbia', 2011, 617465, 7, 0.8933),
-('District of Columbia', 2012, 630643, 7, 0.8934),
-('District of Columbia', 2013, 644203, 7, 0.8967),
-('District of Columbia', 2014, 653986, 7, 0.8985),
-('District of Columbia', 2015, 665135, 7, 0.8958),
-('District of Columbia', 2016, 673428, 7, 0.8966),
-('District of Columbia', 2017, 680670, 7, 0.8956),
-('District of Columbia', 2018, 685476, 7, 0.8978),
-('District of Columbia', 2019, 687320, 7, 0.8957),
-('District of Columbia', 2020, 670958, 6, 0.8953),
-('District of Columbia', 2021, 669637, 6, NULL),
-('District of Columbia', 2022, 674501, 6, NULL),
-('District of Columbia', 2023, 682559, 6, NULL),
-('District of Columbia', 2024, 691310, 6, NULL),
-('District of Columbia', 2025, 693645, 6, NULL);
+
 
 -- Florida
 INSERT INTO State_year_stats (State_name, Stats_year, Number_of_inhabitants, Number_of_hospitals, Male_to_female_ratio) VALUES

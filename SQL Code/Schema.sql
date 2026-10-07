@@ -65,20 +65,19 @@ CREATE TABLE GP (
 
 CREATE TABLE Patient(
     Patient_ID INT AUTO_INCREMENT PRIMARY KEY,  
-    min_age INT ,
-    max_age INT ,
-    Sex ENUM('Male','Female','Other'),
-    Ethnicity VARCHAR(20) ,
-    Diet VARCHAR (30),
+    avg_age INT ,
+    Sex ENUM('Male','Female','Other','Unknown') NOT NULL DEFAULT('Unknown'),
+    Ethnicity VARCHAR(20) NOT NULL DEFAULT('Unknown'),
+    Diet VARCHAR (30) NOT NULL DEFAULT('Unknown'),
     BMI FLOAT(4,2),
     Income FLOAT,
-    Type_of_dementia VARCHAR(40)  ,
+    Type_of_dementia VARCHAR(40) NOT NULL DEFAULT('unknown') ,
     Level_of_highest_Education VARCHAR(40) ,
     Marital_status ENUM ('Single','Married','Divorced', 'In a relationship','Widowed','Other'),
     State VARCHAR(50) ,
     FOREIGN KEY (State) REFERENCES State(State_name)  ON DELETE CASCADE ON UPDATE CASCADE,
     CHECK (BMI BETWEEN 0 AND 50),
-    CHECK (max_age>=min_age),
+    CHECK (avg_age BETWEEN 0 AND 100),
     CHECK (Income >= 0)
 );
 

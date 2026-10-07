@@ -1,14 +1,14 @@
-# 🧠 SQL Database: Dementia Patient Management
+# SQL Database: Dementia Patient Management
 
 [![Database: SQL](https://img.shields.io/badge/Database-SQL-blue.svg)](https://en.wikipedia.org/wiki/SQL)
 [![Phase: Complete](https://img.shields.io/badge/Phase-Complete-success.svg)](#)
 
-## 🏥 Project Scope
+## Project Scope
 This project aims to present a fully functional relational database tailored specifically for hospitals. The core objective is to address the growing societal challenge of dementia by providing healthcare facilities with a robust, structured system to manage patient data, track progression, and streamline care. 
 
 The structural design, hospital presentation instructions, and schema documentation can be found in the **`ERD relation and schema folder`**.
 
-## 📅 Project Timeline & Methodology
+## Project Timeline & Methodology
 This database was developed over a structured 5-week period, evolving from a conceptual societal problem into a fully integrated, real-world data solution.
 
 ### Week 1: Societal Problem Definition
@@ -31,13 +31,13 @@ This database was developed over a structured 5-week period, evolving from a con
 * **Focus:** Practical application and testing.
 * **Details:** We populated the database with real dataset inputs. This allowed us to test real-world queries, validate our schema's robustness, and ensure the system behaves efficiently under standard hospital data loads.
 
-## 📂 Repository Structure
+## Repository Structure
 
 * **`ERD relation and schema folder/`** - Contains the initial Entity-Relationship Diagrams, normalization rules, schema layouts, and the specific guidelines for presenting this database to the hospital.
 * **`sql_scripts/`** - SQL scripts for table creation, schema setup, and relationships (Week 3).
 * **`data/`** - The integrated real datasets used during Week 5 testing.
 
-## 🚀 Getting Started
+## Getting Started
 
 1. **Clone the repository:**
    ```bash

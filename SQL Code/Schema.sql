@@ -165,10 +165,11 @@ CREATE TABLE patient_comorbidity (
 
 CREATE TABLE insurance_therapy_coverage (
     Drug_name VARCHAR(50),
-    insurance_therapy_coverage_percentage FLOAT(3,2),
-    FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name),
-    PRIMARY KEY (Drug_name)
-    
+    insurance_therapy_coverage_percentage DECIMAL(5,2),
+    Insurance_company_name VARCHAR(50),
+    FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (Insurance_company_name) REFERENCES Insurance(Insurance_company_name) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (Drug_name, Insurance_company_name)
 );
 
 -- cost was removed for normalization, it can be retrieved 

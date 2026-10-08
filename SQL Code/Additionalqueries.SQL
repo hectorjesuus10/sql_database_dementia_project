@@ -16,6 +16,22 @@ SELECT
 FROM insurance_therapy_coverage itc
 JOIN Treatment t ON itc.Drug_name = t.drug_name;
 
+-- second query to find the top-performing GPs based on successful patient treatments
+SELECT 
+    g.GP_name, 
+    g.Medical_practice_name,
+    COUNT(pt.patient_ID) AS Total_Improved_Patients
+FROM GP g
+JOIN patients_treated_at_gp pg 
+    ON g.GP_ID = pg.GP_ID
+JOIN Patient_treatment pt 
+    ON pg.Patient_ID = pt.patient_ID
+WHERE pt.health_outcome = 'Improved'
+GROUP BY g.GP_ID, g.GP_name, g.Medical_practice_name
+HAVING COUNT(pt.patient_ID) >= 5
+ORDER BY Total_Improved_Patients DESC;
+
+
 -- Hector's Queries
 -------------------------------------------------------------------------------------
 
@@ -47,18 +63,3 @@ WHERE pt.treatment_status = 'Discontinued'
 
 
 
-
--- second query to find the top-performing GPs based on successful patient treatments
-SELECT 
-    g.GP_name, 
-    g.Medical_practice_name,
-    COUNT(pt.patient_ID) AS Total_Improved_Patients
-FROM GP g
-JOIN patients_treated_at_gp pg 
-    ON g.GP_ID = pg.GP_ID
-JOIN Patient_treatment pt 
-    ON pg.Patient_ID = pt.patient_ID
-WHERE pt.health_outcome = 'Improved'
-GROUP BY g.GP_ID, g.GP_name, g.Medical_practice_name
-HAVING COUNT(pt.patient_ID) >= 5
-ORDER BY Total_Improved_Patients DESC;

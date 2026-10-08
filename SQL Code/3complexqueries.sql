@@ -12,7 +12,8 @@
 
 
 
--- Query 1------
+-- Query 1------ Written by Hanne
+-- getting all the information on patients who are taking cognizol to treat their alzheimers
 SELECT *
 FROM Patient
 JOIN patient_treatment
@@ -39,4 +40,16 @@ FROM `Patient`
 WHERE `Patient_ID` NOT IN
     (SELECT `Patient_ID` FROM patient_Comorbidity
      WHERE `Disease_name` = 'Essential hypertension'); 
+
+-- Query 4 -- Written by Hanne
+-- ordering the amount of patients in a state with a successfull outcome by the drug they are taking.
+SELECT COUNT(Patient.Patient_ID),drug_name,`State_name`
+FROM Patient
+JOIN patient_treatment
+    ON Patient.Patient_ID = patient_treatment.patient_ID
+JOIN State_year_stats
+    ON Patient.State = State_year_stats.State_name 
+WHERE patient_treatment.health_outcome ='Improved' AND patient_treatment.drug_name='donezepil' AND State_year_stats.Stats_year = 2020
+GROUP BY State_year_stats.state_name
+ORDER BY patient_treatment.drug_name;
 

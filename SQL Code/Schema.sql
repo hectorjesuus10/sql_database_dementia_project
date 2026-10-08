@@ -38,7 +38,7 @@ CREATE TABLE Insurance (
 CREATE TABLE Treatment (
     Treatment_id INT AUTO_INCREMENT PRIMARY KEY,
     drug_name VARCHAR(50) UNIQUE,
-    cost DECIMAL(10,2) UNIQUE,
+    cost DECIMAL(10,2),
     number_of_people_treated INT,
     CHECK (cost >= 0),
     CHECK (number_of_people_treated >= 0)
@@ -65,20 +65,19 @@ CREATE TABLE GP (
 
 CREATE TABLE Patient(
     Patient_ID INT AUTO_INCREMENT PRIMARY KEY,  
-    min_age INT ,
-    max_age INT ,
-    Sex ENUM('Male','Female','Other'),
-    Ethnicity VARCHAR(20) ,
-    Diet VARCHAR (30),
+    avg_age INT ,
+    Sex ENUM('Male','Female','Other','Unknown') NOT NULL DEFAULT('Unknown'),
+    Ethnicity VARCHAR(20) NOT NULL DEFAULT('Unknown'),
+    Diet VARCHAR (30) NOT NULL DEFAULT('Unknown'),
     BMI FLOAT(4,2),
     Income FLOAT,
-    Type_of_dementia VARCHAR(40)  ,
+    Type_of_dementia VARCHAR(40) NOT NULL DEFAULT('Unknown') ,
     Level_of_highest_Education VARCHAR(40) ,
-    Marital_status ENUM ('Single','Married','Divorced', 'In a relationship','Widowed','Other'),
+    Marital_status ENUM ('Single','Married','Divorced', 'In a relationship','Widowed','Other','Unknown') NOT NULL DEFAULT('Unknown'),
     State VARCHAR(50) ,
     FOREIGN KEY (State) REFERENCES State(State_name)  ON DELETE CASCADE ON UPDATE CASCADE,
     CHECK (BMI BETWEEN 0 AND 50),
-    CHECK (max_age>=min_age),
+    CHECK (avg_age BETWEEN 0 AND 100),
     CHECK (Income >= 0)
 );
 
@@ -166,10 +165,11 @@ CREATE TABLE patient_comorbidity (
 
 CREATE TABLE insurance_therapy_coverage (
     Drug_name VARCHAR(50),
-    insurance_therapy_coverage_percentage FLOAT(5,2),
-    FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name),
-    PRIMARY KEY (Drug_name)
-    
+    insurance_therapy_coverage_percentage DECIMAL(5,2),
+    Insurance_company_name VARCHAR(50),
+    FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (Insurance_company_name) REFERENCES Insurance(Insurance_company_name) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (Drug_name, Insurance_company_name)
 );
 
 -- cost was removed for normalization, it can be retrieved 

@@ -11,6 +11,8 @@ INSERT INTO Treatment (drug_name, cost, number_of_people_treated) VALUES
 ('Auvelity', 1054.69, 16448),
 ('Suvorexant', 476.16, 77098);
 
+
+
 -- State
 
 INSERT INTO State (State_name, Climate) VALUES
@@ -387,44 +389,7 @@ INSERT INTO State_year_stats (State_name, Stats_year, Number_of_inhabitants, Num
 ('Delaware', 2024, 1050123, 7, NULL),
 ('Delaware', 2025, 1059952, 7, NULL);
 
--- District of Columbia
-INSERT INTO State_year_stats (State_name, Stats_year, Number_of_inhabitants, Number_of_hospitals, Male_to_female_ratio) VALUES
-('District of Columbia', 1990, 603814, NULL, NULL),
-('District of Columbia', 1991, 593239, NULL, NULL),
-('District of Columbia', 1992, 584183, NULL, NULL),
-('District of Columbia', 1993, 576358, NULL, NULL),
-('District of Columbia', 1994, 564982, NULL, NULL),
-('District of Columbia', 1995, 551273, NULL, NULL),
-('District of Columbia', 1996, 538273, NULL, NULL),
-('District of Columbia', 1997, 528752, NULL, NULL),
-('District of Columbia', 1998, 521426, NULL, NULL),
-('District of Columbia', 1999, 519000, NULL, NULL),
-('District of Columbia', 2000, 572046, 7, 0.8902),
-('District of Columbia', 2001, 574504, 7, 0.8914),
-('District of Columbia', 2002, 573158, 7, 0.8907),
-('District of Columbia', 2003, 568502, 7, 0.8912),
-('District of Columbia', 2004, 567754, 7, 0.8907),
-('District of Columbia', 2005, 567136, 7, 0.8929),
-('District of Columbia', 2006, 570681, 7, 0.8939),
-('District of Columbia', 2007, 574404, 7, 0.8960),
-('District of Columbia', 2008, 580236, 7, 0.8946),
-('District of Columbia', 2009, 592228, 7, 0.8992),
-('District of Columbia', 2010, 604718, 7, 0.8893),
-('District of Columbia', 2011, 617465, 7, 0.8933),
-('District of Columbia', 2012, 630643, 7, 0.8934),
-('District of Columbia', 2013, 644203, 7, 0.8967),
-('District of Columbia', 2014, 653986, 7, 0.8985),
-('District of Columbia', 2015, 665135, 7, 0.8958),
-('District of Columbia', 2016, 673428, 7, 0.8966),
-('District of Columbia', 2017, 680670, 7, 0.8956),
-('District of Columbia', 2018, 685476, 7, 0.8978),
-('District of Columbia', 2019, 687320, 7, 0.8957),
-('District of Columbia', 2020, 670958, 6, 0.8953),
-('District of Columbia', 2021, 669637, 6, NULL),
-('District of Columbia', 2022, 674501, 6, NULL),
-('District of Columbia', 2023, 682559, 6, NULL),
-('District of Columbia', 2024, 691310, 6, NULL),
-('District of Columbia', 2025, 693645, 6, NULL);
+
 
 -- Florida
 INSERT INTO State_year_stats (State_name, Stats_year, Number_of_inhabitants, Number_of_hospitals, Male_to_female_ratio) VALUES
@@ -2251,82 +2216,228 @@ INSERT INTO GP (GP_ID, Price, Medical_practice_name, GP_name) VALUES
     ('GP138', NULL, 'Adventist Health Partners,Inc', 'Dr. Ruby Mann');
 
 -- patient --------------------------------------
-INSERT INTO Patient
-    (Patient_ID, min_age, max_age, Sex)
-VALUES
-    (1, 76, 87, 'Female'),
-    (2, 76, 87, 'Female'),
-    (3, 76, 87, 'Male'),
-    (4, 76, 87, 'Male'),
-    (5, 76, 87, 'Female'),
-    (6, 76, 87, 'Female'),
-    (7, 76, 87, 'Male'),
-    (8, 76, 87, 'Male'),
-    (9, 76, 87, 'Female'),
-    (10, 76, 87, 'Female'),
-    (11, 76, 87, 'Male'),
-    (12, 76, 87, 'Female'),
-    (13, 76, 87, 'Female'),
-    (14, 88, 99, NULL),
-    (15, 88, 99, 'Male'),
-    (16, 88, 99, 'Female'),
-    (17, 76, 87, 'Female'),
-    (18, 76, 87, 'Male'),
-    (19, 76, 87, 'Female'),
-    (20, 76, 87, 'Male'),
-    (21, 72, 75, 'Female'),
-    (22, 76, 87, 'Female'),
-    (23, 76, 87, 'Male'),
-    (24, 76, 87, 'Female'),
-    (25, 76, 87, 'Female'),
-    (26, 76, 87, 'Male'),
-    (27, 88, 99, 'Female'),
-    (28, 72, 75, 'Female'),
-    (29, 72, 75, 'Male'),
-    (30, 88, 99, 'Male'),
-    (31, 76, 87, 'Female'),
-    (32, 88, 99, 'Female'),
-    (33, 72, 75, 'Female'),
-    (34, 76, 87, 'Female'),
-    (35, 76, 87, 'Female'),
-    (36, NULL, NULL, 'Male'),
-    (37, 72, 75, 'Female'),
-    (38, 76, 87, 'Female'),
-    (39, NULL, NULL, 'Male'),
-    (40, 88, 99, 'Male'),
-    (41, 88, 99, 'Female'),
-    (42, 76, 87, 'Male'),
-    (43, 72, 75, 'Female'),
-    (44, 76, 87, 'Female'),
-    (45, 76, 87, 'Male'),
-    (46, 76, 87, 'Female'),
-    (47, 88, 99, 'Male'),
-    (48, 76, 87, 'Female'),
-    (49, 76, 87, 'Male'),
-    (50, 76, 87, 'Female'),
-    (51, 72, 75, 'Female'),
-    (52, 72, 75, 'Male'),
-    (53, NULL, NULL, 'Male'),
-    (54, 76, 87, 'Female'),
-    (55, 76, 87, 'Female'),
-    (56, 76, 87, 'Female'),
-    (57, 76, 87, 'Male'),
-    (58, 76, 87, 'Male'),
-    (59, 72, 75, 'Female'),
-    (60, 88, 99, 'Male'),
-    (61, 88, 99, 'Female'),
-    (62, 72, 75, 'Male'),
-    (63, 88, 99, 'Female'),
-    (64, 76, 87, 'Female'),
-    (65, 76, 87, 'Male'),
-    (66, 88, 99, 'Male'),
-    (67, 76, 87, 'Female'),
-    (68, 76, 87, 'Male'),
-    (69, 72, 75, 'Female'),
-    (70, 88, 99, 'Female'),
-    (71, 76, 87, 'Female'),
-    (72, 76, 87, 'Male'),
-    (73, 76, 87, 'Male');
+-- the ages were given in the range the average of this range was inserted as avg_age and when a decimal point was obtained it was rounded down to the nearest integer and because some values were null I decided to just insert every patient individualy.
+
+
+ INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (1, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (2, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (3, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (4, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (5, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (6, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (7, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (8, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (9, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (10, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (11, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (12, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (13, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age)
+VALUES (14, 93);
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (15, 93, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (16, 93, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (17, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (18, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (19, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (20, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (21, 73, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (22, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (23, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (24, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (25, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (26, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (27, 93, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (28, 73, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (29, 73, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (30, 93, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (31, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (32, 93, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (33, 73, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (34, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (35, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, Sex)
+VALUES (36, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (37, 73, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (38, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, Sex)
+VALUES (39, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (40, 93, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (41, 93, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (42, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (43, 73, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (44, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (45, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (46, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (47, 93, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (48, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (49, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (50, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (51, 73, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (52, 73, 'Male');
+
+INSERT INTO Patient (Patient_ID, Sex)
+VALUES (53, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (54, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (55, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (56, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (57, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (58, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (59, 73, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (60, 93, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (61, 93, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (62, 73, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (63, 93, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (64, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (65, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (66, 93, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (67, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (68, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (69, 73, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (70, 93, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (71, 81, 'Female');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (72, 81, 'Male');
+
+INSERT INTO Patient (Patient_ID, avg_age, Sex)
+VALUES (73, 81, 'Male');
+
 
 
 INSERT INTO patient_comorbidity
@@ -2407,7 +2518,7 @@ VALUES
 
 
 
--------------------------------------------------
+
 -- treatments_available_in_states table (using drug_name)
 
 -- We will use IGNORE as a keyword, because we have the composite key (treatment id, state name),

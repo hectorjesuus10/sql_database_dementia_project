@@ -63,17 +63,17 @@ WHERE pt.treatment_status = 'Discontinued'
 
 -- Hanne's Queries ( I also wrote the first query in the doc 3complexqueries so it is duplicate here)
 -- Query 1------
--- getting all the information on patients who are taking cognizol to treat their alzheimers
-SELECT *
+-- getting all the information on patients who are taking cognizol to treat their alzheimers as well as infomation on the status of their treatment
+SELECT patient.*, patient_treatment.start_date,patient_treatment.end_date,patient_treatment.treatment_status,patient_treatment.health_outcome
 FROM Patient
 JOIN patient_treatment
     ON Patient.Patient_ID = patient_treatment.patient_ID
 JOIN Treatment
     ON patient_treatment.Drug_name = Treatment.Drug_name
 WHERE Patient.Type_of_dementia = 'Alzheimers'
-  AND Treatment.Drug_name LIKE 'Namzaric';
+  AND Treatment.Drug_name = 'Donepezil';
 
-  -- Query 2 
+-- Query 2 
 -- getting the total amount of patients who improved with a certain treatment and lived in a certain state
 
 SELECT 

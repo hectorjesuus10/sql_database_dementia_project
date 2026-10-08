@@ -60,8 +60,7 @@ FROM Patient_treatment pt
 JOIN Patient p ON pt.patient_ID = p.Patient_ID
 WHERE pt.treatment_status = 'Discontinued'
   AND pt.health_outcome = 'Worsened';
-
-
+  
 ---------------------------------------------------------------------------------------------
 -- Dhruva's Queries
 ---------------------------------------------------------------------------------------------
@@ -87,4 +86,30 @@ SELECT
     SUM(i.Number_of_people_covered) AS total_people_covered,
     ROUND(AVG(i.Number_of_people_covered)) AS avg_people_per_plan
 FROM Insurance i
-GROUP BY plan_tier
+GROUP BY plan_tier;
+
+-----------------------------------------------------------------------------------------------------
+-- Hanne's Queries ( I also wrote the first query in the doc 3complexqueries so it is duplicate here)
+-- Query 1------
+-- getting all the information on patients who are taking cognizol to treat their alzheimers as well as infomation on the status of their treatment
+SELECT patient.*, patient_treatment.start_date,patient_treatment.end_date,patient_treatment.treatment_status,patient_treatment.health_outcome
+FROM Patient
+JOIN patient_treatment
+    ON Patient.Patient_ID = patient_treatment.patient_ID
+JOIN Treatment
+    ON patient_treatment.Drug_name = Treatment.Drug_name
+WHERE Patient.Type_of_dementia = 'Alzheimers'
+  AND Treatment.Drug_name = 'Donepezil';
+-- Query 2 
+-- getting the total amount of patients who improved with a certain treatment and lived in a certain state
+
+SELECT 
+    COUNT(Patient.Patient_ID) AS total_patients, patient_treatment.drug_name, State.State_name
+FROM Patient
+JOIN patient_treatment
+    ON Patient.Patient_ID = patient_treatment.patient_ID
+JOIN State
+    ON Patient.State = State.State_name
+WHERE patient_treatment.health_outcome = 'Improved' 
+GROUP BY patient_treatment.drug_name, State.State_name
+ORDER BY total_patients DESC;

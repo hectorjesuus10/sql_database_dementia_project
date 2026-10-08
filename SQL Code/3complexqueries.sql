@@ -12,7 +12,7 @@
 
 
 
--- Query 1------
+-- Query 1------ Written by Hanne
 -- getting all the information on patients who are taking cognizol to treat their alzheimers
 SELECT *
 FROM Patient
@@ -41,7 +41,7 @@ WHERE `Patient_ID` NOT IN
     (SELECT `Patient_ID` FROM patient_Comorbidity
      WHERE `Disease_name` = 'Essential hypertension'); 
 
--- Query 4 -- 
+-- Query 4 -- Written by Hanne
 -- ordering the amount of patients in a state with a successfull outcome by the drug they are taking.
 SELECT COUNT(Patient.Patient_ID),drug_name,`State_name`
 FROM Patient

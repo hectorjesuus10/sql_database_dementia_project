@@ -838,3 +838,628 @@ INSERT INTO insurance_therapy_coverage (Drug_name, Cost, insurance_therapy_cover
 ('Synapmine', 179.76, 53.32),
 ('Amylomine', 136.46, 86.96);
 
+
+-- Realistic mock data for the tables that we couldn't find real data --
+
+INSERT INTO Patient_treatment (drug_name, patient_ID, start_date, end_date, treatment_status, health_outcome) VALUES
+('Namzaric', 1, '2022-05-27', '2022-11-18', 'Discontinued', 'Worsened'),
+('Memantine', 2, '2024-08-04', NULL, 'Ongoing', NULL),
+('Galantamine', 3, '2023-03-26', '2023-05-22', 'Discontinued', 'Stable'),
+('Donepezil', 4, '2023-10-09', NULL, 'Ongoing', 'Improved'),
+('Suvorexant', 5, '2023-10-07', NULL, 'Ongoing', 'Stable'),
+('Suvorexant', 6, '2024-07-28', NULL, 'Ongoing', 'Improved'),
+('Namzaric', 7, '2023-06-23', '2024-09-03', 'Discontinued', 'Worsened'),
+('Memantine', 8, '2023-03-26', '2023-08-14', 'Discontinued', 'Worsened'),
+('Donepezil', 9, '2022-04-07', '2022-09-10', 'Discontinued', 'Worsened'),
+('Brexpiprazole', 10, '2024-05-14', NULL, 'Ongoing', 'Stable'),
+('Galantamine', 11, '2024-08-16', NULL, 'Ongoing', NULL),
+('Auvelity', 12, '2022-01-24', '2022-09-15', 'Discontinued', 'Worsened'),
+('Rivastigmine', 13, '2023-07-01', '2024-06-13', 'Discontinued', 'Improved'),
+('Memantine', 14, '2024-07-18', NULL, 'Ongoing', 'Stable'),
+('Namzaric', 15, '2024-10-22', '2024-12-25', 'Discontinued', 'Worsened'),
+('Auvelity', 16, '2023-09-04', '2024-05-20', 'Discontinued', 'Worsened'),
+('Donepezil', 17, '2022-11-27', NULL, 'Ongoing', 'Stable'),
+('Rivastigmine', 18, '2022-01-02', NULL, 'Ongoing', 'Stable'),
+('Donepezil', 19, '2024-01-14', '2024-06-19', 'Discontinued', 'Stable'),
+('Donepezil', 20, '2022-06-11', NULL, 'Ongoing', 'Stable'),
+('Donepezil', 21, '2024-12-26', '2024-12-27', 'Discontinued', 'Worsened'),
+('Lecanemab', 22, '2022-12-05', NULL, 'Ongoing', 'Worsened'),
+('Memantine', 23, '2023-03-10', '2023-10-01', 'Discontinued', 'Worsened'),
+('Memantine', 24, '2024-02-04', NULL, 'Ongoing', 'Stable'),
+('Donepezil', 25, '2023-04-06', NULL, 'Ongoing', 'Improved'),
+('Rivastigmine', 26, '2023-03-28', NULL, 'Ongoing', 'Stable'),
+('Donepezil', 27, '2022-05-19', '2024-10-15', 'Discontinued', 'Stable'),
+('Rivastigmine', 28, '2023-07-25', '2024-02-29', 'Discontinued', 'Worsened'),
+('Namzaric', 29, '2024-08-26', NULL, 'Ongoing', 'Stable'),
+('Memantine', 30, '2022-07-13', NULL, 'Ongoing', 'Stable'),
+('Memantine', 31, '2024-08-14', '2024-08-27', 'Discontinued', 'Worsened'),
+('Donanemab', 32, '2022-07-21', NULL, 'Ongoing', 'Stable'),
+('Brexpiprazole', 33, '2022-08-12', NULL, 'Ongoing', 'Improved'),
+('Memantine', 34, '2024-05-14', NULL, 'Ongoing', 'Stable'),
+('Auvelity', 35, '2022-06-04', NULL, 'Ongoing', 'Worsened'),
+('Rivastigmine', 36, '2022-04-14', '2023-10-19', 'Discontinued', 'Worsened'),
+('Lecanemab', 37, '2023-04-30', NULL, 'Ongoing', 'Stable'),
+('Donepezil', 38, '2024-04-01', '2024-06-24', 'Discontinued', 'Stable'),
+('Donanemab', 39, '2023-06-28', '2024-10-05', 'Discontinued', 'Stable'),
+('Namzaric', 40, '2024-09-23', NULL, 'Ongoing', 'Improved'),
+('Lecanemab', 41, '2022-05-05', '2022-07-02', 'Discontinued', 'Improved'),
+('Rivastigmine', 42, '2024-12-23', NULL, 'Ongoing', NULL),
+('Donepezil', 43, '2023-01-16', NULL, 'Ongoing', 'Improved'),
+('Auvelity', 44, '2024-04-06', NULL, 'Ongoing', 'Worsened'),
+('Memantine', 45, '2022-03-23', '2023-05-26', 'Discontinued', 'Worsened'),
+('Rivastigmine', 46, '2023-10-10', '2024-01-22', 'Discontinued', 'Worsened'),
+('Memantine', 47, '2023-06-28', NULL, 'Ongoing', 'Stable'),
+('Memantine', 48, '2023-10-10', '2023-11-16', 'Discontinued', 'Improved'),
+('Galantamine', 49, '2022-07-24', NULL, 'Ongoing', 'Improved'),
+('Memantine', 50, '2023-12-16', '2024-04-19', 'Discontinued', 'Stable'),
+('Donepezil', 51, '2023-09-12', '2024-10-29', 'Discontinued', 'Worsened'),
+('Donepezil', 52, '2023-09-06', '2023-10-29', 'Discontinued', 'Worsened'),
+('Donepezil', 53, '2022-08-25', '2024-09-23', 'Discontinued', 'Worsened'),
+('Memantine', 54, '2023-03-08', '2023-10-02', 'Discontinued', 'Worsened'),
+('Auvelity', 55, '2024-11-01', NULL, 'Ongoing', NULL),
+('Auvelity', 56, '2022-07-09', '2024-11-04', 'Discontinued', 'Stable'),
+('Donepezil', 57, '2022-09-25', '2023-06-20', 'Discontinued', 'Improved'),
+('Memantine', 58, '2024-05-25', NULL, 'Ongoing', 'Improved'),
+('Lecanemab', 59, '2022-11-02', NULL, 'Ongoing', 'Worsened'),
+('Galantamine', 60, '2022-10-31', NULL, 'Ongoing', 'Improved'),
+('Memantine', 61, '2022-03-23', '2022-10-24', 'Discontinued', 'Worsened'),
+('Galantamine', 62, '2023-12-26', '2024-07-21', 'Discontinued', 'Worsened'),
+('Brexpiprazole', 63, '2023-04-30', '2023-10-28', 'Discontinued', 'Worsened'),
+('Donepezil', 64, '2023-11-12', '2024-06-09', 'Discontinued', 'Worsened'),
+('Auvelity', 65, '2023-05-24', NULL, 'Ongoing', 'Stable'),
+('Donepezil', 66, '2022-03-21', '2022-11-03', 'Discontinued', 'Improved'),
+('Suvorexant', 67, '2023-12-18', NULL, 'Ongoing', 'Stable'),
+('Donepezil', 68, '2022-02-18', '2024-05-14', 'Discontinued', 'Stable'),
+('Auvelity', 69, '2023-07-26', NULL, 'Ongoing', 'Stable'),
+('Namzaric', 70, '2023-11-10', '2024-01-08', 'Discontinued', 'Worsened'),
+('Memantine', 71, '2023-06-28', NULL, 'Ongoing', 'Stable'),
+('Memantine', 72, '2023-10-05', NULL, 'Ongoing', NULL),
+('Donepezil', 73, '2023-01-25', NULL, 'Ongoing', 'Stable');
+
+INSERT INTO patients_treated_at_gp (Patient_ID, GP_ID) VALUES
+(1, 'GP132'),
+(2, 'GP065'),
+(3, 'GP054'),
+(4, 'GP086'),
+(5, 'GP082'),
+(6, 'GP079'),
+(7, 'GP068'),
+(8, 'GP064'),
+(9, 'GP120'),
+(10, 'GP062'),
+(11, 'GP126'),
+(12, 'GP105'),
+(13, 'GP055'),
+(14, 'GP136'),
+(15, 'GP129'),
+(16, 'GP078'),
+(17, 'GP080'),
+(18, 'GP115'),
+(19, 'GP125'),
+(20, 'GP076'),
+(21, 'GP104'),
+(22, 'GP133'),
+(23, 'GP108'),
+(24, 'GP135'),
+(25, 'GP051'),
+(26, 'GP099'),
+(27, 'GP102'),
+(28, 'GP061'),
+(29, 'GP095'),
+(30, 'GP123'),
+(31, 'GP072'),
+(32, 'GP138'),
+(33, 'GP060'),
+(34, 'GP131'),
+(35, 'GP113'),
+(36, 'GP116'),
+(37, 'GP057'),
+(38, 'GP056'),
+(39, 'GP075'),
+(40, 'GP112'),
+(41, 'GP073'),
+(42, 'GP098'),
+(43, 'GP089'),
+(44, 'GP067'),
+(45, 'GP053'),
+(46, 'GP122'),
+(47, 'GP085'),
+(48, 'GP058'),
+(49, 'GP100'),
+(50, 'GP101'),
+(51, 'GP121'),
+(52, 'GP069'),
+(53, 'GP074'),
+(54, 'GP063'),
+(55, 'GP128'),
+(56, 'GP094'),
+(57, 'GP137'),
+(58, 'GP090'),
+(59, 'GP106'),
+(60, 'GP083'),
+(61, 'GP109'),
+(62, 'GP091'),
+(63, 'GP130'),
+(64, 'GP092'),
+(65, 'GP059'),
+(66, 'GP134'),
+(67, 'GP071'),
+(68, 'GP124'),
+(69, 'GP096'),
+(70, 'GP103'),
+(71, 'GP087'),
+(72, 'GP118'),
+(73, 'GP088');
+
+INSERT INTO GP_treatment (GP_ID, Treatment_id)
+SELECT 'GP051', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP053', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP054', Treatment_id FROM Treatment WHERE drug_name = 'Galantamine'
+UNION ALL
+SELECT 'GP055', Treatment_id FROM Treatment WHERE drug_name = 'Rivastigmine'
+UNION ALL
+SELECT 'GP056', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP057', Treatment_id FROM Treatment WHERE drug_name = 'Lecanemab'
+UNION ALL
+SELECT 'GP058', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP059', Treatment_id FROM Treatment WHERE drug_name = 'Auvelity'
+UNION ALL
+SELECT 'GP060', Treatment_id FROM Treatment WHERE drug_name = 'Brexpiprazole'
+UNION ALL
+SELECT 'GP061', Treatment_id FROM Treatment WHERE drug_name = 'Rivastigmine'
+UNION ALL
+SELECT 'GP062', Treatment_id FROM Treatment WHERE drug_name = 'Brexpiprazole'
+UNION ALL
+SELECT 'GP063', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP064', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP065', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP067', Treatment_id FROM Treatment WHERE drug_name = 'Auvelity'
+UNION ALL
+SELECT 'GP068', Treatment_id FROM Treatment WHERE drug_name = 'Namzaric'
+UNION ALL
+SELECT 'GP069', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP071', Treatment_id FROM Treatment WHERE drug_name = 'Suvorexant'
+UNION ALL
+SELECT 'GP072', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP073', Treatment_id FROM Treatment WHERE drug_name = 'Lecanemab'
+UNION ALL
+SELECT 'GP074', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP075', Treatment_id FROM Treatment WHERE drug_name = 'Donanemab'
+UNION ALL
+SELECT 'GP076', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP078', Treatment_id FROM Treatment WHERE drug_name = 'Auvelity'
+UNION ALL
+SELECT 'GP079', Treatment_id FROM Treatment WHERE drug_name = 'Suvorexant'
+UNION ALL
+SELECT 'GP080', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP082', Treatment_id FROM Treatment WHERE drug_name = 'Suvorexant'
+UNION ALL
+SELECT 'GP083', Treatment_id FROM Treatment WHERE drug_name = 'Galantamine'
+UNION ALL
+SELECT 'GP085', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP086', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP087', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP088', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP089', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP090', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP091', Treatment_id FROM Treatment WHERE drug_name = 'Galantamine'
+UNION ALL
+SELECT 'GP092', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP094', Treatment_id FROM Treatment WHERE drug_name = 'Auvelity'
+UNION ALL
+SELECT 'GP095', Treatment_id FROM Treatment WHERE drug_name = 'Namzaric'
+UNION ALL
+SELECT 'GP096', Treatment_id FROM Treatment WHERE drug_name = 'Auvelity'
+UNION ALL
+SELECT 'GP098', Treatment_id FROM Treatment WHERE drug_name = 'Rivastigmine'
+UNION ALL
+SELECT 'GP099', Treatment_id FROM Treatment WHERE drug_name = 'Rivastigmine'
+UNION ALL
+SELECT 'GP100', Treatment_id FROM Treatment WHERE drug_name = 'Galantamine'
+UNION ALL
+SELECT 'GP101', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP102', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP103', Treatment_id FROM Treatment WHERE drug_name = 'Namzaric'
+UNION ALL
+SELECT 'GP104', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP105', Treatment_id FROM Treatment WHERE drug_name = 'Auvelity'
+UNION ALL
+SELECT 'GP106', Treatment_id FROM Treatment WHERE drug_name = 'Lecanemab'
+UNION ALL
+SELECT 'GP108', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP109', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP112', Treatment_id FROM Treatment WHERE drug_name = 'Namzaric'
+UNION ALL
+SELECT 'GP113', Treatment_id FROM Treatment WHERE drug_name = 'Auvelity'
+UNION ALL
+SELECT 'GP115', Treatment_id FROM Treatment WHERE drug_name = 'Rivastigmine'
+UNION ALL
+SELECT 'GP116', Treatment_id FROM Treatment WHERE drug_name = 'Rivastigmine'
+UNION ALL
+SELECT 'GP118', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP120', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP121', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP122', Treatment_id FROM Treatment WHERE drug_name = 'Rivastigmine'
+UNION ALL
+SELECT 'GP123', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP124', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP125', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP126', Treatment_id FROM Treatment WHERE drug_name = 'Galantamine'
+UNION ALL
+SELECT 'GP128', Treatment_id FROM Treatment WHERE drug_name = 'Auvelity'
+UNION ALL
+SELECT 'GP129', Treatment_id FROM Treatment WHERE drug_name = 'Namzaric'
+UNION ALL
+SELECT 'GP130', Treatment_id FROM Treatment WHERE drug_name = 'Brexpiprazole'
+UNION ALL
+SELECT 'GP131', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP132', Treatment_id FROM Treatment WHERE drug_name = 'Namzaric'
+UNION ALL
+SELECT 'GP133', Treatment_id FROM Treatment WHERE drug_name = 'Lecanemab'
+UNION ALL
+SELECT 'GP134', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP135', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP136', Treatment_id FROM Treatment WHERE drug_name = 'Memantine'
+UNION ALL
+SELECT 'GP137', Treatment_id FROM Treatment WHERE drug_name = 'Donepezil'
+UNION ALL
+SELECT 'GP138', Treatment_id FROM Treatment WHERE drug_name = 'Donanemab';
+
+INSERT INTO Insurance (Insurance_company_name, Insurance_plan, Number_of_people_covered) VALUES
+('UnitedHealthcare', 'Gold PPO 1500', 1415108),
+('UnitedHealthcare', 'Bronze HMO 2000', 247405),
+('Aetna', 'Gold HSA 250', 1957787),
+('Aetna', 'Silver HMO 250', 959420),
+('Cigna', 'Platinum HMO 500', 240238),
+('Cigna', 'Platinum HMO 2000', 309631),
+('Humana', 'Silver HSA 250', 1260272),
+('Humana', 'Platinum HMO 500', 147690),
+('Kaiser Permanente', 'Silver EPO 1500', 352524),
+('Kaiser Permanente', 'Bronze HSA 1000', 1224944),
+('Elevance Health', 'Silver HMO 2000', 1247902),
+('Elevance Health', 'Silver EPO 250', 1198703),
+('Centene', 'Bronze HSA 250', 1348157),
+('Centene', 'Silver POS 3000', 1165098),
+('Molina Healthcare', 'Platinum EPO 1500', 1278012),
+('Molina Healthcare', 'Platinum EPO 1000', 570988),
+('Blue Cross Blue Shield', 'Silver PPO 250', 1254653),
+('Blue Cross Blue Shield', 'Gold HSA 1500', 1885296),
+('Highmark', 'Gold POS 1000', 1327079),
+('Highmark', 'Bronze HMO 2000', 926867);
+
+INSERT INTO state_insurance (State_name, Insurance_company_name, Insurance_plan) VALUES
+('Alabama', 'Elevance Health', 'Silver HMO 2000'),
+('Alaska', 'Molina Healthcare', 'Platinum EPO 1000'),
+('Arizona', 'UnitedHealthcare', 'Bronze HMO 2000'),
+('Arizona', 'Aetna', 'Gold HSA 250'),
+('Arkansas', 'Elevance Health', 'Silver HMO 2000'),
+('Arkansas', 'Elevance Health', 'Silver EPO 250'),
+('California', 'Highmark', 'Gold POS 1000'),
+('California', 'Molina Healthcare', 'Platinum EPO 1500'),
+('Colorado', 'Aetna', 'Gold HSA 250'),
+('Connecticut', 'Molina Healthcare', 'Platinum EPO 1000'),
+('Connecticut', 'Aetna', 'Gold HSA 250'),
+('Delaware', 'Kaiser Permanente', 'Bronze HSA 1000'),
+('Florida', 'Kaiser Permanente', 'Bronze HSA 1000'),
+('Florida', 'Centene', 'Bronze HSA 250'),
+('Georgia', 'UnitedHealthcare', 'Gold PPO 1500'),
+('Georgia', 'Molina Healthcare', 'Platinum EPO 1500'),
+('Hawaii', 'Cigna', 'Platinum HMO 2000'),
+('Hawaii', 'Aetna', 'Silver HMO 250'),
+('Idaho', 'UnitedHealthcare', 'Bronze HMO 2000'),
+('Idaho', 'Humana', 'Silver HSA 250'),
+('Illinois', 'Cigna', 'Platinum HMO 500'),
+('Illinois', 'Humana', 'Platinum HMO 500'),
+('Indiana', 'Centene', 'Bronze HSA 250'),
+('Indiana', 'Molina Healthcare', 'Platinum EPO 1000'),
+('Iowa', 'Cigna', 'Platinum HMO 2000'),
+('Kansas', 'Centene', 'Bronze HSA 250'),
+('Kansas', 'Blue Cross Blue Shield', 'Gold HSA 1500'),
+('Kentucky', 'Cigna', 'Platinum HMO 500'),
+('Kentucky', 'Centene', 'Silver POS 3000'),
+('Louisiana', 'Centene', 'Silver POS 3000'),
+('Louisiana', 'Elevance Health', 'Silver EPO 250'),
+('Maine', 'Humana', 'Platinum HMO 500'),
+('Maine', 'Cigna', 'Platinum HMO 500'),
+('Maryland', 'Cigna', 'Platinum HMO 2000'),
+('Massachusetts', 'Humana', 'Platinum HMO 500'),
+('Michigan', 'UnitedHealthcare', 'Gold PPO 1500'),
+('Minnesota', 'Highmark', 'Gold POS 1000'),
+('Minnesota', 'Cigna', 'Platinum HMO 2000'),
+('Mississippi', 'Kaiser Permanente', 'Bronze HSA 1000'),
+('Mississippi', 'UnitedHealthcare', 'Gold PPO 1500'),
+('Missouri', 'Centene', 'Silver POS 3000'),
+('Montana', 'Highmark', 'Bronze HMO 2000'),
+('Montana', 'Highmark', 'Gold POS 1000'),
+('Nebraska', 'Cigna', 'Platinum HMO 500'),
+('Nebraska', 'Blue Cross Blue Shield', 'Silver PPO 250'),
+('Nevada', 'Molina Healthcare', 'Platinum EPO 1500'),
+('New Hampshire', 'Centene', 'Bronze HSA 250'),
+('New Hampshire', 'Highmark', 'Bronze HMO 2000'),
+('New Jersey', 'Aetna', 'Silver HMO 250'),
+('New Jersey', 'Molina Healthcare', 'Platinum EPO 1000'),
+('New Mexico', 'UnitedHealthcare', 'Bronze HMO 2000'),
+('New Mexico', 'Humana', 'Silver HSA 250'),
+('New York', 'Humana', 'Silver HSA 250'),
+('North Carolina', 'Cigna', 'Platinum HMO 2000'),
+('North Carolina', 'Aetna', 'Silver HMO 250'),
+('North Dakota', 'Highmark', 'Bronze HMO 2000'),
+('North Dakota', 'UnitedHealthcare', 'Bronze HMO 2000'),
+('Ohio', 'UnitedHealthcare', 'Gold PPO 1500'),
+('Oklahoma', 'Blue Cross Blue Shield', 'Gold HSA 1500'),
+('Oregon', 'Elevance Health', 'Silver EPO 250'),
+('Pennsylvania', 'Aetna', 'Gold HSA 250'),
+('Rhode Island', 'Highmark', 'Bronze HMO 2000'),
+('South Carolina', 'Cigna', 'Platinum HMO 500'),
+('South Carolina', 'Kaiser Permanente', 'Silver EPO 1500'),
+('South Dakota', 'Highmark', 'Bronze HMO 2000'),
+('South Dakota', 'Elevance Health', 'Silver EPO 250'),
+('Tennessee', 'Aetna', 'Silver HMO 250'),
+('Tennessee', 'Highmark', 'Bronze HMO 2000'),
+('Texas', 'Molina Healthcare', 'Platinum EPO 1500'),
+('Texas', 'Molina Healthcare', 'Platinum EPO 1000'),
+('Utah', 'Kaiser Permanente', 'Bronze HSA 1000'),
+('Utah', 'Aetna', 'Gold HSA 250'),
+('Vermont', 'Aetna', 'Silver HMO 250'),
+('Virginia', 'Kaiser Permanente', 'Silver EPO 1500'),
+('Virginia', 'Molina Healthcare', 'Platinum EPO 1000'),
+('Washington', 'Blue Cross Blue Shield', 'Silver PPO 250'),
+('West Virginia', 'Humana', 'Silver HSA 250'),
+('Wisconsin', 'Cigna', 'Platinum HMO 500'),
+('Wisconsin', 'Blue Cross Blue Shield', 'Gold HSA 1500'),
+('Wyoming', 'Blue Cross Blue Shield', 'Silver PPO 250');
+
+INSERT INTO individual_insurance_plan (Patient_ID, Insurance_company_name, Insurance_plan) VALUES
+(1, 'Kaiser Permanente', 'Bronze HSA 1000'),
+(2, 'Aetna', 'Gold HSA 250'),
+(3, 'Kaiser Permanente', 'Silver EPO 1500'),
+(4, 'Blue Cross Blue Shield', 'Silver PPO 250'),
+(5, 'Elevance Health', 'Silver EPO 250'),
+(6, 'Cigna', 'Platinum HMO 2000'),
+(7, 'Elevance Health', 'Silver EPO 250'),
+(8, 'Humana', 'Platinum HMO 500'),
+(9, 'Blue Cross Blue Shield', 'Gold HSA 1500'),
+(10, 'Blue Cross Blue Shield', 'Gold HSA 1500'),
+(11, 'Blue Cross Blue Shield', 'Silver PPO 250'),
+(12, 'Elevance Health', 'Silver HMO 2000'),
+(13, 'Humana', 'Platinum HMO 500'),
+(14, 'Highmark', 'Bronze HMO 2000'),
+(15, 'Humana', 'Silver HSA 250'),
+(16, 'Humana', 'Platinum HMO 500'),
+(17, 'Centene', 'Bronze HSA 250'),
+(18, 'Humana', 'Platinum HMO 500'),
+(19, 'Humana', 'Silver HSA 250'),
+(20, 'Blue Cross Blue Shield', 'Silver PPO 250'),
+(21, 'Molina Healthcare', 'Platinum EPO 1000'),
+(22, 'Elevance Health', 'Silver EPO 250'),
+(23, 'UnitedHealthcare', 'Gold PPO 1500'),
+(24, 'UnitedHealthcare', 'Gold PPO 1500'),
+(25, 'Kaiser Permanente', 'Silver EPO 1500'),
+(26, 'Molina Healthcare', 'Platinum EPO 1000'),
+(27, 'Kaiser Permanente', 'Silver EPO 1500'),
+(28, 'Humana', 'Silver HSA 250'),
+(29, 'Highmark', 'Bronze HMO 2000'),
+(30, 'Elevance Health', 'Silver EPO 250'),
+(31, 'Molina Healthcare', 'Platinum EPO 1500'),
+(32, 'Elevance Health', 'Silver EPO 250'),
+(33, 'Elevance Health', 'Silver EPO 250'),
+(34, 'Aetna', 'Gold HSA 250'),
+(35, 'Humana', 'Platinum HMO 500'),
+(36, 'Aetna', 'Silver HMO 250'),
+(37, 'Humana', 'Platinum HMO 500'),
+(38, 'Molina Healthcare', 'Platinum EPO 1000'),
+(39, 'Humana', 'Silver HSA 250'),
+(40, 'Elevance Health', 'Silver HMO 2000'),
+(41, 'Humana', 'Silver HSA 250'),
+(42, 'Molina Healthcare', 'Platinum EPO 1000'),
+(43, 'Highmark', 'Bronze HMO 2000'),
+(44, 'Highmark', 'Bronze HMO 2000'),
+(45, 'UnitedHealthcare', 'Gold PPO 1500'),
+(46, 'Molina Healthcare', 'Platinum EPO 1000'),
+(47, 'Elevance Health', 'Silver EPO 250'),
+(48, 'Aetna', 'Gold HSA 250'),
+(49, 'Aetna', 'Silver HMO 250'),
+(50, 'Centene', 'Bronze HSA 250'),
+(51, 'Humana', 'Silver HSA 250'),
+(52, 'Molina Healthcare', 'Platinum EPO 1000'),
+(53, 'Cigna', 'Platinum HMO 2000'),
+(54, 'Centene', 'Silver POS 3000'),
+(55, 'Elevance Health', 'Silver HMO 2000'),
+(56, 'Aetna', 'Gold HSA 250'),
+(57, 'Centene', 'Bronze HSA 250'),
+(58, 'Molina Healthcare', 'Platinum EPO 1500'),
+(59, 'Centene', 'Bronze HSA 250'),
+(60, 'Aetna', 'Gold HSA 250'),
+(61, 'Cigna', 'Platinum HMO 2000'),
+(62, 'Cigna', 'Platinum HMO 2000'),
+(63, 'Cigna', 'Platinum HMO 500'),
+(64, 'UnitedHealthcare', 'Gold PPO 1500'),
+(65, 'Cigna', 'Platinum HMO 500'),
+(66, 'Highmark', 'Gold POS 1000'),
+(67, 'Molina Healthcare', 'Platinum EPO 1500'),
+(68, 'Cigna', 'Platinum HMO 500'),
+(69, 'Highmark', 'Bronze HMO 2000'),
+(70, 'Highmark', 'Bronze HMO 2000'),
+(71, 'Molina Healthcare', 'Platinum EPO 1000'),
+(72, 'Elevance Health', 'Silver EPO 250'),
+(73, 'Cigna', 'Platinum HMO 500');
+
+INSERT INTO GP_insurance (GP_ID, Insurance_company_name, Insurance_plan, Coverage_Percentage) VALUES
+('GP051', 'UnitedHealthcare', 'Gold PPO 1500', 40.78),
+('GP052', 'Blue Cross Blue Shield', 'Silver PPO 250', 81.22),
+('GP053', 'Centene', 'Silver POS 3000', 94.26),
+('GP054', 'Humana', 'Silver HSA 250', 41.54),
+('GP055', 'Kaiser Permanente', 'Bronze HSA 1000', 67.56),
+('GP056', 'Kaiser Permanente', 'Silver EPO 1500', 63.05),
+('GP056', 'Blue Cross Blue Shield', 'Gold HSA 1500', 47.21),
+('GP057', 'Molina Healthcare', 'Platinum EPO 1500', 84.83),
+('GP057', 'Highmark', 'Gold POS 1000', 68.42),
+('GP058', 'Blue Cross Blue Shield', 'Gold HSA 1500', 48.35),
+('GP059', 'Molina Healthcare', 'Platinum EPO 1500', 82.71),
+('GP060', 'Cigna', 'Platinum HMO 500', 49.48),
+('GP061', 'Highmark', 'Bronze HMO 2000', 70.61),
+('GP061', 'Aetna', 'Silver HMO 250', 57.93),
+('GP062', 'Aetna', 'Silver HMO 250', 43.13),
+('GP062', 'Blue Cross Blue Shield', 'Gold HSA 1500', 50.52),
+('GP063', 'Aetna', 'Silver HMO 250', 67.92),
+('GP064', 'Aetna', 'Gold HSA 250', 64.38),
+('GP065', 'Kaiser Permanente', 'Silver EPO 1500', 64.88),
+('GP066', 'Blue Cross Blue Shield', 'Silver PPO 250', 78.46),
+('GP066', 'Humana', 'Platinum HMO 500', 88.21),
+('GP067', 'Blue Cross Blue Shield', 'Gold HSA 1500', 86.2),
+('GP067', 'Humana', 'Silver HSA 250', 47.54),
+('GP068', 'Centene', 'Bronze HSA 250', 64.32),
+('GP069', 'Humana', 'Platinum HMO 500', 63.56),
+('GP070', 'Kaiser Permanente', 'Bronze HSA 1000', 83.12),
+('GP071', 'Elevance Health', 'Silver EPO 250', 47.86),
+('GP072', 'Molina Healthcare', 'Platinum EPO 1500', 52.08),
+('GP073', 'Centene', 'Bronze HSA 250', 88.67),
+('GP074', 'Humana', 'Platinum HMO 500', 48.88),
+('GP075', 'Blue Cross Blue Shield', 'Silver PPO 250', 58.65),
+('GP075', 'Centene', 'Bronze HSA 250', 50.77),
+('GP076', 'Aetna', 'Gold HSA 250', 41.07),
+('GP076', 'Elevance Health', 'Silver EPO 250', 70.47),
+('GP077', 'UnitedHealthcare', 'Gold PPO 1500', 58.23),
+('GP077', 'Centene', 'Bronze HSA 250', 74.32),
+('GP078', 'Aetna', 'Silver HMO 250', 94.18),
+('GP079', 'Aetna', 'Silver HMO 250', 44.62),
+('GP080', 'UnitedHealthcare', 'Bronze HMO 2000', 54.87),
+('GP080', 'Cigna', 'Platinum HMO 2000', 47.13),
+('GP081', 'Kaiser Permanente', 'Silver EPO 1500', 48.22),
+('GP081', 'Centene', 'Bronze HSA 250', 90.55),
+('GP082', 'Elevance Health', 'Silver HMO 2000', 55.35),
+('GP082', 'Aetna', 'Gold HSA 250', 83.98),
+('GP083', 'Centene', 'Silver POS 3000', 89.24),
+('GP084', 'UnitedHealthcare', 'Gold PPO 1500', 84.09),
+('GP084', 'Aetna', 'Gold HSA 250', 44.61),
+('GP085', 'Aetna', 'Gold HSA 250', 54.54),
+('GP086', 'Molina Healthcare', 'Platinum EPO 1500', 40.64),
+('GP087', 'Kaiser Permanente', 'Silver EPO 1500', 42.38),
+('GP087', 'Cigna', 'Platinum HMO 500', 79.02),
+('GP088', 'Cigna', 'Platinum HMO 2000', 54.4),
+('GP089', 'Humana', 'Silver HSA 250', 91.27),
+('GP090', 'Blue Cross Blue Shield', 'Silver PPO 250', 55.95),
+('GP090', 'Humana', 'Silver HSA 250', 67.5),
+('GP091', 'Kaiser Permanente', 'Silver EPO 1500', 59.09),
+('GP092', 'Kaiser Permanente', 'Silver EPO 1500', 42.03),
+('GP093', 'Blue Cross Blue Shield', 'Silver PPO 250', 70.31),
+('GP094', 'Blue Cross Blue Shield', 'Silver PPO 250', 66.11),
+('GP095', 'Aetna', 'Silver HMO 250', 76.11),
+('GP095', 'Centene', 'Silver POS 3000', 70.02),
+('GP096', 'Blue Cross Blue Shield', 'Silver PPO 250', 77.83),
+('GP096', 'Kaiser Permanente', 'Bronze HSA 1000', 94.03),
+('GP097', 'Humana', 'Silver HSA 250', 62.26),
+('GP097', 'Cigna', 'Platinum HMO 500', 59.12),
+('GP098', 'Cigna', 'Platinum HMO 500', 40.78),
+('GP099', 'Centene', 'Silver POS 3000', 43.05),
+('GP099', 'Cigna', 'Platinum HMO 2000', 76.59),
+('GP100', 'Blue Cross Blue Shield', 'Silver PPO 250', 72.93),
+('GP100', 'Kaiser Permanente', 'Bronze HSA 1000', 78.1),
+('GP101', 'Molina Healthcare', 'Platinum EPO 1500', 50.19),
+('GP102', 'Molina Healthcare', 'Platinum EPO 1500', 54.48),
+('GP102', 'UnitedHealthcare', 'Gold PPO 1500', 92.9),
+('GP103', 'Humana', 'Platinum HMO 500', 93.11),
+('GP103', 'UnitedHealthcare', 'Bronze HMO 2000', 57.03),
+('GP104', 'Cigna', 'Platinum HMO 2000', 58.44),
+('GP104', 'UnitedHealthcare', 'Gold PPO 1500', 44.61),
+('GP105', 'Blue Cross Blue Shield', 'Silver PPO 250', 53.65),
+('GP105', 'Humana', 'Silver HSA 250', 82.69),
+('GP106', 'Kaiser Permanente', 'Silver EPO 1500', 84.94),
+('GP107', 'Centene', 'Bronze HSA 250', 72.27),
+('GP108', 'UnitedHealthcare', 'Gold PPO 1500', 56.73),
+('GP108', 'Kaiser Permanente', 'Bronze HSA 1000', 52.8),
+('GP109', 'Highmark', 'Bronze HMO 2000', 61.42),
+('GP110', 'Molina Healthcare', 'Platinum EPO 1000', 55.63),
+('GP110', 'Cigna', 'Platinum HMO 500', 74.03),
+('GP111', 'UnitedHealthcare', 'Bronze HMO 2000', 85.37),
+('GP112', 'Blue Cross Blue Shield', 'Silver PPO 250', 90.04),
+('GP112', 'Cigna', 'Platinum HMO 500', 81.41),
+('GP113', 'Highmark', 'Gold POS 1000', 83.89),
+('GP114', 'Aetna', 'Gold HSA 250', 41.71),
+('GP115', 'Elevance Health', 'Silver EPO 250', 92.77),
+('GP116', 'Molina Healthcare', 'Platinum EPO 1500', 42.79),
+('GP116', 'Blue Cross Blue Shield', 'Gold HSA 1500', 41.04),
+('GP117', 'Molina Healthcare', 'Platinum EPO 1000', 54.51),
+('GP118', 'Aetna', 'Gold HSA 250', 89.38),
+('GP118', 'Blue Cross Blue Shield', 'Silver PPO 250', 45.06),
+('GP119', 'Molina Healthcare', 'Platinum EPO 1000', 53.87),
+('GP120', 'Kaiser Permanente', 'Silver EPO 1500', 52.91),
+('GP121', 'Humana', 'Platinum HMO 500', 80.69),
+('GP122', 'Molina Healthcare', 'Platinum EPO 1000', 44.22),
+('GP122', 'Centene', 'Bronze HSA 250', 90.08),
+('GP123', 'UnitedHealthcare', 'Bronze HMO 2000', 44.26),
+('GP123', 'Humana', 'Silver HSA 250', 48.11),
+('GP124', 'Kaiser Permanente', 'Bronze HSA 1000', 47.34),
+('GP124', 'Highmark', 'Gold POS 1000', 66.53),
+('GP125', 'Kaiser Permanente', 'Silver EPO 1500', 78.07),
+('GP125', 'Aetna', 'Silver HMO 250', 77.16),
+('GP126', 'Blue Cross Blue Shield', 'Silver PPO 250', 65.56),
+('GP126', 'Kaiser Permanente', 'Bronze HSA 1000', 65.65),
+('GP127', 'Blue Cross Blue Shield', 'Gold HSA 1500', 50.96),
+('GP128', 'Molina Healthcare', 'Platinum EPO 1000', 40.96),
+('GP129', 'Aetna', 'Gold HSA 250', 93.25),
+('GP129', 'Blue Cross Blue Shield', 'Silver PPO 250', 64.72),
+('GP130', 'Centene', 'Bronze HSA 250', 90.41),
+('GP130', 'Humana', 'Silver HSA 250', 91.18),
+('GP131', 'Highmark', 'Gold POS 1000', 44.97),
+('GP132', 'Elevance Health', 'Silver EPO 250', 73.19),
+('GP132', 'Cigna', 'Platinum HMO 500', 74.74),
+('GP133', 'Aetna', 'Silver HMO 250', 52.73),
+('GP133', 'Elevance Health', 'Silver EPO 250', 89.37),
+('GP134', 'Centene', 'Bronze HSA 250', 48.75),
+('GP134', 'UnitedHealthcare', 'Gold PPO 1500', 92.25),
+('GP135', 'Centene', 'Bronze HSA 250', 80.0),
+('GP135', 'Kaiser Permanente', 'Bronze HSA 1000', 62.89),
+('GP136', 'Elevance Health', 'Silver HMO 2000', 86.21),
+('GP136', 'Aetna', 'Silver HMO 250', 40.1),
+('GP137', 'Centene', 'Bronze HSA 250', 91.69),
+('GP137', 'Aetna', 'Silver HMO 250', 50.77),
+('GP138', 'Kaiser Permanente', 'Bronze HSA 1000', 53.93);
+
+INSERT INTO insurance_therapy_coverage (Drug_name, insurance_therapy_coverage_percentage) VALUES
+('Donanemab', 30.0),
+('Lecanemab', 35.0),
+('Benzgalantamine', 20.0),
+('Donepezil', 85.5),
+('Galantamine', 78.2),
+('Rivastigmine', 75.4),
+('Memantine', 82.75),
+('Namzaric', 65.0),
+('Brexpiprazole', 55.3),
+('Auvelity', 50.1),
+('Suvorexant', 60.25);
+
+

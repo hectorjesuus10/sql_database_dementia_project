@@ -60,7 +60,35 @@ FROM Patient_treatment pt
 JOIN Patient p ON pt.patient_ID = p.Patient_ID
 WHERE pt.treatment_status = 'Discontinued'
   AND pt.health_outcome = 'Worsened';
+  
+---------------------------------------------------------------------------------------------
+-- Dhruva's Queries
+---------------------------------------------------------------------------------------------
 
+-- Question: Which insurance companies cover the largest number of people across all their plans?
+-- Relevance: The largest insurers reach the most people, and thus need to be involved in sharing and accessing records.
+SELECT
+    i.Insurance_company_name,
+    COUNT(*) AS number_of_plans,
+    SUM(i.Number_of_people_covered) AS total_people_covered
+FROM Insurance i
+GROUP BY i.Insurance_company_name
+ORDER BY total_people_covered DESC
+LIMIT 5;
+
+
+-- Question: How many plans and how many covered people are there in each plan tier?
+-- Relevance: Dementia care can be expensive, and the tier of a plan can affect the costs incurred by the patient. 
+-- Seeing how many people are in each tier can show hospitals/policy makers how many patients are exposed to high costs. 
+SELECT
+    SUBSTRING_INDEX(i.Insurance_plan, ' ', 1) AS plan_tier,
+    COUNT(*) AS number_of_plans,
+    SUM(i.Number_of_people_covered) AS total_people_covered,
+    ROUND(AVG(i.Number_of_people_covered)) AS avg_people_per_plan
+FROM Insurance i
+GROUP BY plan_tier;
+
+-----------------------------------------------------------------------------------------------------
 -- Hanne's Queries ( I also wrote the first query in the doc 3complexqueries so it is duplicate here)
 -- Query 1------
 -- getting all the information on patients who are taking cognizol to treat their alzheimers as well as infomation on the status of their treatment
@@ -72,7 +100,6 @@ JOIN Treatment
     ON patient_treatment.Drug_name = Treatment.Drug_name
 WHERE Patient.Type_of_dementia = 'Alzheimers'
   AND Treatment.Drug_name = 'Donepezil';
-
 -- Query 2 
 -- getting the total amount of patients who improved with a certain treatment and lived in a certain state
 

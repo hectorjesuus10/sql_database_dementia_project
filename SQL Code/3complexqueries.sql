@@ -12,7 +12,7 @@
 
 
 
--- Query 1------ Written by Hanne
+-- Query 1------
 -- getting all the information on patients who are taking cognizol to treat their alzheimers
 SELECT *
 FROM Patient
@@ -20,8 +20,8 @@ JOIN patient_treatment
     ON Patient.Patient_ID = patient_treatment.patient_ID
 JOIN Treatment
     ON patient_treatment.Drug_name = Treatment.Drug_name
-WHERE Patient.Type_of_dementia = 'Alzheimer'
-  AND Treatment.Drug_name LIKE 'Cognizol'; 
+WHERE Patient.Type_of_dementia = 'Alzheimers'
+  AND Treatment.Drug_name LIKE 'Namzaric'; 
 
 
 
@@ -43,13 +43,14 @@ WHERE `Patient_ID` NOT IN
 
 -- Query 4 -- Written by Hanne
 -- ordering the amount of patients in a state with a successfull outcome by the drug they are taking.
-SELECT COUNT(Patient.Patient_ID),drug_name,`State_name`
+
+SELECT 
+    COUNT(Patient.Patient_ID) AS total_patients, patient_treatment.drug_name, State_year_stats.State_name
 FROM Patient
 JOIN patient_treatment
     ON Patient.Patient_ID = patient_treatment.patient_ID
 JOIN State_year_stats
-    ON Patient.State = State_year_stats.State_name 
-WHERE patient_treatment.health_outcome ='Improved' AND patient_treatment.drug_name='donezepil' AND State_year_stats.Stats_year = 2020
-GROUP BY State_year_stats.state_name
-ORDER BY patient_treatment.drug_name;
-
+    ON Patient.State = State_year_stats.State_name
+WHERE patient_treatment.health_outcome = 'Improved' AND State_year_stats.Stats_year = 2020
+GROUP BY patient_treatment.drug_name, State_year_stats.State_name
+ORDER BY total_patients DESC;

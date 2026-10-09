@@ -49,8 +49,7 @@ LIMIT 10;
 -- second query to get the patients who have discontinued treatment and worsened health outcome --
 SELECT 
     p.Patient_ID,
-    p.min_age,
-    p.max_age,
+    p.avg_age,
     pt.drug_name,
     pt.start_date,
     pt.end_date,

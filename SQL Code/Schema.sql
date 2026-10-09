@@ -168,8 +168,8 @@ CREATE TABLE insurance_therapy_coverage (
     insurance_therapy_coverage_percentage DECIMAL(5,2),
     Insurance_company_name VARCHAR(50),
     FOREIGN KEY (Drug_name) REFERENCES Treatment(Drug_name) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (Insurance_company_name) REFERENCES Insurance(Insurance_company_name) ON DELETE CASCADE ON UPDATE CASCADE,
-    PRIMARY KEY (Drug_name, Insurance_company_name)
+    FOREIGN KEY (Insurance_company_name) REFERENCES Insurance(Insurance_company_name, Insurance_plan) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (Drug_name, Insurance_company_name, Insurance_plan)
 );
 
 -- cost was removed for normalization, it can be retrieved 

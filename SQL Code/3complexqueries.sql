@@ -6,7 +6,7 @@
 
 
 -----------------------------------------------------------------
--- PLEASE DO RUN THE QUERIES AFTER POPULATING THE MOCK AND REAL DATA!!!!--
+-- PLEASE DO RUN THE QUERIES AFTER POPULATING DATABASE WITH THE MOCK AND REAL DATA!--
 -----------------------------------------------------------------
 
 

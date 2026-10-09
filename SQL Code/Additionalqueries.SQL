@@ -91,7 +91,7 @@ GROUP BY plan_tier;
 -----------------------------------------------------------------------------------------------------
 -- Hanne's Queries ( I also wrote the first query in the doc 3complexqueries so it is duplicate here)
 -- Query 1------
--- getting all the information on patients who are taking cognizol to treat their alzheimers as well as infomation on the status of their treatment
+-- getting all the information on patients who are taking Donepezil to treat their alzheimers as well as infomation on the status of their treatment
 SELECT patient.*, patient_treatment.start_date,patient_treatment.end_date,patient_treatment.treatment_status,patient_treatment.health_outcome
 FROM Patient
 JOIN patient_treatment

@@ -28,7 +28,7 @@ JOIN Patient_treatment pt
     ON pg.Patient_ID = pt.patient_ID
 WHERE pt.health_outcome = 'Improved'
 GROUP BY g.GP_ID, g.GP_name, g.Medical_practice_name
-HAVING COUNT(pt.patient_ID) >= 5
+HAVING COUNT(pt.patient_ID) >= 1
 ORDER BY Total_Improved_Patients DESC;
 
 
